@@ -614,7 +614,7 @@
     "@babel/plugin-transform-react-jsx-self" "^7.0.0"
     "@babel/plugin-transform-react-jsx-source" "^7.0.0"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.4.0", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.4.0", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5":
   version "7.6.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.6.2.tgz#c3d6e41b304ef10dcf13777a33e7694ec4a9a6dd"
   dependencies:
@@ -1505,7 +1505,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.6:
+classnames@^2.2.3, classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
 
@@ -3531,6 +3531,14 @@ lodash.has@^4.0:
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/lodash.has/-/lodash.has-4.5.2.tgz#d19f4dc1095058cccbe2b0cdf4ee0fe4aa37c862"
 
+lodash.isfunction@^3.0.9:
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/lodash.isfunction/-/lodash.isfunction-3.0.9.tgz#06de25df4db327ac931981d1bdb067e5af68d051"
+
+lodash.isobject@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/lodash.isobject/-/lodash.isobject-3.0.2.tgz#3c8fb8d5b5bf4bf90ae06e14f2a530a4ed935e1d"
+
 lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
@@ -3547,6 +3555,10 @@ lodash.templatesettings@^4.0.0:
   resolved "https://registry.yarnpkg.com/lodash.templatesettings/-/lodash.templatesettings-4.2.0.tgz#e481310f049d3cf6d47e912ad09313b154f0fb33"
   dependencies:
     lodash._reinterpolate "^3.0.0"
+
+lodash.tonumber@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/lodash.tonumber/-/lodash.tonumber-4.0.3.tgz#0b96b31b35672793eb7f5a63ee791f1b9e9025d9"
 
 lodash.uniq@^4.5.0:
   version "4.5.0"
@@ -5018,7 +5030,7 @@ prop-types-extra@^1.1.0:
     react-is "^16.3.2"
     warning "^3.0.0"
 
-prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   dependencies:
@@ -5193,6 +5205,10 @@ react-is@^16.3.2, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.10.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.10.0.tgz#3d6a031e57fff73c3cfa0347feb3e8f40c5141e5"
 
+react-lifecycles-compat@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
+
 react-overlays@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-1.2.0.tgz#205368eeb0a5fb0b7f9b717fa7a12d518500abdb"
@@ -5206,7 +5222,7 @@ react-overlays@^1.2.0:
     uncontrollable "^6.0.0"
     warning "^4.0.2"
 
-react-popper@^1.3.2:
+react-popper@^1.3.2, react-popper@^1.3.3:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-1.3.4.tgz#f0cd3b0d30378e1f663b0d79bcc8614221652ced"
   dependencies:
@@ -5244,6 +5260,15 @@ react-router@5.1.0:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
+react-transition-group@^2.3.1:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.9.0.tgz#df9cdb025796211151a436c69a8f3b97b5b07c8d"
+  dependencies:
+    dom-helpers "^3.4.0"
+    loose-envify "^1.4.0"
+    prop-types "^15.6.2"
+    react-lifecycles-compat "^3.0.4"
+
 react-transition-group@^4.0.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.3.0.tgz#fea832e386cf8796c58b61874a3319704f5ce683"
@@ -5266,6 +5291,20 @@ react_ujs@^2.6.0:
   resolved "https://registry.yarnpkg.com/react_ujs/-/react_ujs-2.6.0.tgz#98c53cc40b2b3b8558300e19394638d45d37a177"
   dependencies:
     react_ujs "^2.6.0"
+
+reactstrap@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/reactstrap/-/reactstrap-8.0.1.tgz#0b663c8195f540bc1d6d5dbcbcf73cab56fe7c79"
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+    classnames "^2.2.3"
+    lodash.isfunction "^3.0.9"
+    lodash.isobject "^3.0.2"
+    lodash.tonumber "^4.0.3"
+    prop-types "^15.5.8"
+    react-lifecycles-compat "^3.0.4"
+    react-popper "^1.3.3"
+    react-transition-group "^2.3.1"
 
 read-cache@^1.0.0:
   version "1.0.0"

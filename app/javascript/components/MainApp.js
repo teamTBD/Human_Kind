@@ -39,8 +39,12 @@ class MainApp extends React.Component {
           <Route
             exact
             path="/deed_feed"
-            render=<Feed />
-            
+            render={()=>{
+                return(
+                    <Feed />
+                )
+            }}
+
           />
 
         </Router>

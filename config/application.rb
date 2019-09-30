@@ -23,6 +23,7 @@ module CapstoneTbd
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+    config.hosts << "b0e8850b649f4c869b0811460a24bc86.vfs.cloud9.us-east-2.amazonaws.com"
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

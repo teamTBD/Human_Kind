@@ -4,6 +4,7 @@ import { Nav, NavLink, NavItem, Jumbotron } from 'reactstrap'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import Feed from './pages/Feed'
+import Profile from './pages/Profile'
 
 
 class MainApp extends React.Component {
@@ -35,7 +36,14 @@ class MainApp extends React.Component {
         <Router>
 
 
+
           <Nav>
+            {logged_in &&
+            <NavItem>
+                <NavLink href="/profile">Profile</NavLink>
+            </NavItem>
+            }
+          
             {logged_in &&
             <NavItem>
                 <NavLink href="/deed_feed">Deed Feed</NavLink>
@@ -68,6 +76,17 @@ class MainApp extends React.Component {
             render={()=>{
                 return(
                     <Feed />
+                )
+            }}
+
+          />
+          
+           <Route
+            exact
+            path="/profile"
+            render={()=>{
+                return(
+                    <Profile />
                 )
             }}
 

@@ -18,7 +18,28 @@ let createPost = function (attributes) {
         return json
     })
 }
+let editPost = (id, form) => {
+    return fetch(`/posts/${id}`, {
+        body: JSON.stringify(form),
+        headers:{
+            "Content-Type": "application/json"
+        },
+        method: 'PATCH'
+    })
+    .then((response) => {
+        let json = response.json()
+        return json
+    })
+}
+
+let findPost = function(id) {
+    return fetch(`/posts/${id}`)
+    .then((resp) => {
+        let json = resp.json()
+        return json
+    })
+}
 
 export {
-    getPosts, createPost
+    getPosts, createPost, editPost, findPost
 }

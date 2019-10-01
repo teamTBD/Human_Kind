@@ -37,6 +37,22 @@ class MainApp extends React.Component {
     }
     
 
+    editPost = (id, attributes) => {
+        return fetch(`/posts/${id}`, {
+            method: 'PATCH',
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({post: attributes})
+        })
+        ).then(response =>{
+            if(response.status === 200){
+                let json = response.json()
+                return json
+            }
+        })
+    }
+
     render () {
       const {
         logged_in,

@@ -24,12 +24,8 @@ class NewDeed extends React.Component {
     }
 
     handleClick = () => {
-        const{ onClick } = this.props
         const{ form } = this.state
-        onClick(form)
-        .then(() => {
-            this.setState({success: true})
-        })
+        this.props.handleNewPost(form)
     }
 
     render () {
@@ -37,8 +33,8 @@ class NewDeed extends React.Component {
             title,
             description,
             location,
-            success
         } = this.state
+        const { success } = this.props
     return (
       <React.Fragment>
         {success && <Redirect to="/deed_feed" /> }

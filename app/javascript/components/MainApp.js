@@ -51,7 +51,7 @@ class MainApp extends React.Component {
             },
             body: JSON.stringify({post: attributes})
         })
-        ).then(response =>{
+        .then(response =>{
             if(response.status === 200){
                 let json = response.json()
                 return json

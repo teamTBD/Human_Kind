@@ -6,7 +6,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Feed from './pages/Feed'
 import Profile from './pages/Profile'
 import NewDeed from './pages/NewDeed'
-import { getPosts, createPost } from './api'
+import EditPost from './pages/EditPost'
+import { getPosts, createPost, editPost } from './api'
 
 class MainApp extends React.Component {
     constructor(props){
@@ -29,29 +30,24 @@ class MainApp extends React.Component {
       })
     }
 
+    handleEditPost = (id, form) => {
+        editPost(id,form)
+        .then(editedDeed => {
+            this.setState({success: true})
+            getPosts()
+            .then(posts=>{
+                this.setState({posts})
+            })
+        })
+    }
     componentWillMount() {
         getPosts()
         .then( posts => {
             this.setState({posts})
         })
     }
-    
 
-    editPost = (id, attributes) => {
-        return fetch(`/posts/${id}`, {
-            method: 'PATCH',
-            headers:{
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({post: attributes})
-        })
-        .then(response =>{
-            if(response.status === 200){
-                let json = response.json()
-                return json
-            }
-        })
-    }
+
 
     render () {
       const {
@@ -105,8 +101,16 @@ class MainApp extends React.Component {
                 a site for sharing good deeds in your community and connecting with others to deed the needy
             </p>
           </Jumbotron>
+          <Route exact path="/edit_post/:id" render={(props)=>{
+                return(
+                    <EditPost {...props}
+                    posts = {posts} handleEditPost={this.handleEditPost} success={this.state.success}/>
+                )
+            }}
+          />
 
           <Route exact path="/deed_feed" render={(props)=>{
+              console.log(props);
                 return(
                     <Feed {...props} posts = {posts}/>
                 )

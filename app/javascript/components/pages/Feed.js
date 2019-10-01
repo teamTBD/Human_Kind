@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Nav } from 'reactstrap'
+import { Link } from 'react-router-dom'
 
 
 class Feed extends React.Component {
@@ -16,7 +17,7 @@ class Feed extends React.Component {
             {posts.map((post) => {
                 return(
                     <div key={post.id}>
-                        {post.title}
+                    <Link to={`/edit_post/${post.id}`}>{post.title}</Link>
                         {post.description}
                         {post.location}
                     </div>

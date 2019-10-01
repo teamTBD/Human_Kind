@@ -39,7 +39,7 @@ let findPost = function(id) {
         return json
     })
 }
-
 export {
     getPosts, createPost, editPost, findPost
 }
+

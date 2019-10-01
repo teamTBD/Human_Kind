@@ -18,7 +18,6 @@ let createPost = function (attributes) {
         return json
     })
 }
-
 let editPost = (id, form) => {
     return fetch(`/posts/${id}`, {
         body: JSON.stringify(form),
@@ -40,3 +39,7 @@ let findPost = function(id) {
         return json
     })
 }
+export {
+    getPosts, createPost, editPost, findPost
+}
+

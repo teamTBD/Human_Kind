@@ -5,31 +5,46 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import Feed from './pages/Feed'
 import Profile from './pages/Profile'
-
+import NewDeed from './pages/NewDeed'
+import { getPosts, createPost } from './api'
 
 class MainApp extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            deeds: [],
-            logged_in: ""
+            posts: [],
+            logged_in: "",
+            success: false
         }
-
     }
 
+    handleNewPost = (post) => {
+        createPost(post)
+        .then(deed => {
+          this.setState({success: true})
+          getPosts()
+          .then(posts=>{
+              this.setState({posts})
+          })
+      })
+    }
 
-
-
-
-
+    componentWillMount() {
+        getPosts()
+        .then( posts => {
+            this.setState({posts})
+        })
+    }
+    
 
     render () {
       const {
-
         logged_in,
         sign_in_route,
         sign_out_route
       } = this.props
+
+      const {posts} = this.state
 
     return (
       <React.Fragment>
@@ -43,10 +58,15 @@ class MainApp extends React.Component {
                 <NavLink href="/profile">Profile</NavLink>
             </NavItem>
             }
-          
+
             {logged_in &&
             <NavItem>
                 <NavLink href="/deed_feed">Deed Feed</NavLink>
+            </NavItem>
+            }
+            {logged_in &&
+            <NavItem>
+                <NavLink href="/new_deed">Post Deed</NavLink>
             </NavItem>
             }
             {logged_in &&
@@ -70,25 +90,25 @@ class MainApp extends React.Component {
             </p>
           </Jumbotron>
 
-          <Route
-            exact
-            path="/deed_feed"
-            render={()=>{
+          <Route exact path="/deed_feed" render={(props)=>{
                 return(
-                    <Feed />
+                    <Feed {...props} posts = {posts}/>
                 )
             }}
-
           />
-          
-           <Route
-            exact
-            path="/profile"
-            render={()=>{
+          <Route exact path="/new_deed" render={(props)=>{
+                return(
+                    <NewDeed
+                        {...props} handleNewPost={this.handleNewPost} success={this.state.success}
+                    />
+                )
+            }}
+          />
+
+           <Route exact path="/profile" render={()=>{
                 return(
                     <Profile />
-                )
-            }}
+                )}}
 
           />
 

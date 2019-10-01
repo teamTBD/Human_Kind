@@ -16,9 +16,9 @@ export default class Profile extends React.Component {
      
   <Media>
       <Media left href="#">
-        <Media object style={{width: 150, height: 175, borderRadius: 175/ 2}} src="https://style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="Generic placeholder image"/>
+        <Media object style={{width: 150, height: 175, borderRadius: 175/ 2, padding: 20}} src="https://style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="Generic placeholder image"/>
       </Media>
-      <Media body>
+      <Media body style={{padding: 20}}>
         <Media heading style={{textAlign: 'center'}}>
           User Name 
         </Media>

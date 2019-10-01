@@ -4,31 +4,52 @@ import { Nav, NavLink, NavItem, Jumbotron } from 'reactstrap'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import Feed from './pages/Feed'
+import NewDeed from './pages/NewDeed'
 
 
 class MainApp extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            deeds: [],
+            posts: [],
             logged_in: ""
         }
-
+        this.getPosts()
     }
 
+    getPosts = () => {
+        fetch("/posts")
+        .then(response => {
+            return response.json()
+        })
+        .then( posts => {
+            this.setState({posts})
+        })
+    }
 
-
-
-
-
+    createPost = (attributes) => {
+        return fetch("/posts", {
+            method: 'POST',
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({post: attributes})
+        })
+        .then(response => {
+            if(response.status === 201){
+                this.getPosts()
+            }
+        })
+    }
 
     render () {
       const {
-
         logged_in,
         sign_in_route,
         sign_out_route
       } = this.props
+
+      const {posts} = this.state
 
     return (
       <React.Fragment>
@@ -39,6 +60,11 @@ class MainApp extends React.Component {
             {logged_in &&
             <NavItem>
                 <NavLink href="/deed_feed">Deed Feed</NavLink>
+            </NavItem>
+            }
+            {logged_in &&
+            <NavItem>
+                <NavLink href="/new_deed">Post Deed</NavLink>
             </NavItem>
             }
             {logged_in &&
@@ -65,12 +91,26 @@ class MainApp extends React.Component {
           <Route
             exact
             path="/deed_feed"
-            render={()=>{
+            render={(props)=>{
                 return(
-                    <Feed />
+                    <Feed
+                        {...props}
+                        posts = {posts}
+                    />
                 )
             }}
-
+          />
+          <Route
+            exact
+            path="/new_deed"
+            render={(props)=>{
+                return(
+                    <NewDeed
+                        {...props}
+                        onClick={this.createPost}
+                    />
+                )
+            }}
           />
 
         </Router>

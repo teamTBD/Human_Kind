@@ -3,6 +3,11 @@ import PropTypes from "prop-types"
 import { Nav, NavLink, NavItem, Jumbotron } from 'reactstrap'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope, faKey, faUserAstronaut, faHandsHelping, faParagraph, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faEnvelope, faKey, faUserAstronaut, faHandsHelping, faParagraph,faThumbsUp);
+
 import Feed from './pages/Feed'
 import Profile from './pages/Profile'
 
@@ -54,19 +59,20 @@ class MainApp extends React.Component {
                 <NavLink href={sign_out_route}>Sign Out</NavLink>
             </NavItem>
             }
+             
             {!logged_in &&
             <NavItem>
                 <NavLink href={sign_in_route}>Sign In</NavLink>
             </NavItem>
             }
           </Nav>
-
+                
           <Jumbotron>
             <h1>
-                Human Kind
+                HUMAN_KIND
             </h1>
             <p>
-                a site for sharing good deeds in your community and connecting with others to deed the needy
+                a site for sharing good deeds in your community and connecting with others to deed the needy.  Working together we can reach the stars
             </p>
           </Jumbotron>
 

@@ -32,6 +32,19 @@ let editPost = (id, form) => {
     })
 }
 
+let deletePost = (id) => {
+    return fetch(`/posts/${id}`, {
+        body: JSON.stringify(id),
+        headers:{
+            "Content-Type": "application/json"
+        },
+        method: 'DELETE'
+    })
+        .then((resp) =>{
+            return resp
+        })
+}
+
 let findPost = function(id) {
     return fetch(`/posts/${id}`)
     .then((resp) => {
@@ -40,6 +53,5 @@ let findPost = function(id) {
     })
 }
 export {
-    getPosts, createPost, editPost, findPost
+    getPosts, createPost, editPost, findPost, deletePost
 }
-

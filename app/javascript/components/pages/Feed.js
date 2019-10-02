@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom'
 
 
 class Feed extends React.Component {
+    componentDidMount() {
+        this.props.changeSuccess(false)
+    }
 
     render () {
         const {

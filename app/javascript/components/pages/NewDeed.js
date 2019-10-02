@@ -15,7 +15,6 @@ class NewDeed extends React.Component {
             }
         }
     }
-
     onChange = (e) => {
         const{ form } = this.state
         const{ name, value } = e.target
@@ -37,7 +36,7 @@ class NewDeed extends React.Component {
         const { success } = this.props
     return (
       <React.Fragment>
-        {success && <Redirect to="/deed_feed" /> }
+
         <h1>Post Deed</h1>
         <div>
           <label>Title of Your Post</label>
@@ -68,6 +67,7 @@ class NewDeed extends React.Component {
         </div>
 
         <button onClick={this.handleClick}>Post Deed</button>
+        {success && <Redirect to="/deed_feed" /> }
       </React.Fragment>
     );
   }

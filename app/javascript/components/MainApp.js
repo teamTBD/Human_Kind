@@ -7,6 +7,7 @@ import Feed from './pages/Feed'
 import Profile from './pages/Profile'
 import NewDeed from './pages/NewDeed'
 import EditPost from './pages/EditPost'
+import AboutUs from './pages/AboutUs'
 import { getPosts, createPost, editPost, deletePost } from './api'
 
 class MainApp extends React.Component {
@@ -83,6 +84,11 @@ class MainApp extends React.Component {
                 <NavLink href="/profile">Profile</NavLink>
             </NavItem>
             }
+            {logged_in &&
+            <NavItem>
+                <NavLink href="/AboutUs">About Us</NavLink>
+            </NavItem>
+            }
 
             {logged_in &&
             <NavItem>
@@ -144,6 +150,14 @@ class MainApp extends React.Component {
                     <Profile />
                 )}}
 
+          />
+          
+          <Route exact path="/AboutUs" render={()=>{
+              return(
+              <AboutUs/>
+              )
+          }}
+          
           />
 
         </Router>

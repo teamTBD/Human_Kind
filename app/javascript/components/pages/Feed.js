@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Nav } from 'reactstrap'
+import { Nav, Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
 
@@ -11,7 +11,8 @@ class Feed extends React.Component {
 
     render () {
         const {
-            posts
+            posts,
+            handleDeletePost
         } = this.props
     return (
       <React.Fragment>
@@ -23,6 +24,7 @@ class Feed extends React.Component {
                     <Link to={`/edit_post/${post.id}`}>{post.title}</Link>
                         {post.description}
                         {post.location}
+                        <Button onClick={() => this.props.handleDeletePost(post.id)}>Delete Post</Button>
                     </div>
                 )
             })}

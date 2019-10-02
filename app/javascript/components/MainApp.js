@@ -7,7 +7,7 @@ import Feed from './pages/Feed'
 import Profile from './pages/Profile'
 import NewDeed from './pages/NewDeed'
 import EditPost from './pages/EditPost'
-import { getPosts, createPost, editPost } from './api'
+import { getPosts, createPost, editPost, deletePost } from './api'
 
 class MainApp extends React.Component {
     constructor(props){
@@ -40,6 +40,17 @@ class MainApp extends React.Component {
             })
         })
     }
+
+    handleDeletePost = (id) => {
+        deletePost(id)
+        .then(deletedDeed => {
+            getPosts()
+            .then(posts=>{
+                this.setState({posts})
+            })
+        })
+    }
+
     componentWillMount() {
         getPosts()
         .then( posts => {
@@ -114,7 +125,8 @@ class MainApp extends React.Component {
           <Route exact path="/deed_feed" render={(props)=>{
               console.log(props);
                 return(
-                    <Feed {...props} posts = {posts} changeSuccess={this.changeSuccess}/>
+                    <Feed {...props} posts = {posts} changeSuccess={this.changeSuccess}
+                    handleDeletePost={this.handleDeletePost}/>
                 )
             }}
           />

@@ -1,79 +1,78 @@
-var NewComponent = React.createClass({
-  render: function() {
-    return (
 
-      <section id="aboutus" className="aboutus-section">
-        <h2 className="aboutus-section-header"> About Us </h2>
-        <div className="aboutus-grid">
-          <div className="aboutus-grid">
+import React from "react";
+import PropTypes from "prop-types";
+import {Card, Button, CardImg, CardTitle, CardText, CardDeck,
+  CardSubtitle, CardBody} from 'reactstrap'
+  
+export default class AboutUs extends React.Component {
+    render(){
+        return (
+            <div>
+            <h1  style={{textAlign: 'center'}}>A Little About Us</h1>
+                  <CardDeck style={{margin:'5px', marginBottom:'20px'}}>
+                      <Card>
+                        <CardImg top width="100%" src="https://style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="Card image cap" />
+                        <CardBody>
+                          <CardTitle>Card title</CardTitle>
+                          <CardSubtitle>Card subtitle</CardSubtitle>
+                          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+                          <Button>Button</Button>
+                        </CardBody>
+                      </Card>
+                      <Card>
+                        <CardImg top width="100%" src="https://style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="Card image cap" />
+                        <CardBody>
+                          <CardTitle>Card title</CardTitle>
+                          <CardSubtitle>Card subtitle</CardSubtitle>
+                          <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
+                          <Button>Button</Button>
+                        </CardBody>
+                      </Card>
+                      <Card>
+                        <CardImg top width="100%" src="https://style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="Card image cap" />
+                        <CardBody>
+                          <CardTitle>Card title</CardTitle>
+                          <CardSubtitle>Card subtitle</CardSubtitle>
+                          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
+                          <Button>Button</Button>
+                        </CardBody>
+                      </Card>
+                    </CardDeck>
+                  
+                <CardDeck style={{margin:'5px', marginBottom:'20px'}}>
+                      <Card>
+                        <CardImg top width="100%" src="https://style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="Card image cap" />
+                        <CardBody>
+                          <CardTitle>Card title</CardTitle>
+                          <CardSubtitle>Card subtitle</CardSubtitle>
+                          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+                          <Button>Button</Button>
+                        </CardBody>
+                      </Card>
+                      <Card>
+                        <CardImg top width="100%" src="https://style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="Card image cap" />
+                        <CardBody>
+                          <CardTitle>Card title</CardTitle>
+                          <CardSubtitle>Card subtitle</CardSubtitle>
+                          <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
+                          <Button>Button</Button>
+                        </CardBody>
+                      </Card>
+                      <Card>
+                        <CardImg top width="100%" src="https://style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="Card image cap" />
+                        <CardBody>
+                          <CardTitle>Card title</CardTitle>
+                          <CardSubtitle>Card subtitle</CardSubtitle>
+                          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
+                          <Button>Button</Button>
+                        </CardBody>
+                      </Card>
+                    </CardDeck>
+            
+            
+            </div>
+            
+            )
+    }
+}
 
-            {/*- Team member 1 -*/}
-            <a href="#" className="aboutus aboutus-tile">
-              <img className="us-image" src alt="someone" />
-              <p className="aboutus-title">
-                <span />
-                This guy
-                <span />
-              </p>
-            </a>
-            {/*- End Team member 1 -*/}
-
-            {/*- Team member 2 -*/}
-            <a href="#" className="aboutus aboutus-tile">
-              <img className="us-image" src="#" alt="someone" />
-              <p className="aboutus-title">
-                <span />
-                That guy
-                <span />
-              </p>
-            </a>
-            {/*- End Team member 2 */}
-
-            {/*- Team member 3*/}
-            <a href="#" className="aboutus aboutus-tile">
-              <img className="us-image" src="#" alt="someone" />
-              <p className="aboutus-title">
-                <span />
-                This guy
-                <span />
-              </p>
-            </a>
-            {/*- End Team member 3 -*/}
-
-            {/*- Team member 4-*/}
-            <a href="#" className="aboutus aboutus-tile">
-              <img className="us-image" src="#" alt="someone" />
-              <p className="aboutus-title">
-                <span />
-                That guy
-                <span />
-              </p>
-            </a>
-            {/*- End team member 4-*/}
-
-            {/*- Team member 5-*/}
-            <a href="#" className="aboutus aboutus-tile">
-              <img className="us-image" src="#" alt="someone" />
-              <p className="aboutus-title">
-                <span />
-                This guy
-                <span />
-              </p>
-            </a>
-            {/*- End Team member 5 -*/}
-
-            {/*- Team member 6-*/}
-            <a href="#" target="_blank" className="aboutus aboutus-tile">
-              <img className="us-image" src="#" alt="someone" />
-              <p className="aboutus-title">
-                <span />
-                That guy
-                <span />
-              </p>
-            </a>
-            {/*- End Team member 6-*/}
-          </div>
-        </div></section>
-    );
-  }
-});

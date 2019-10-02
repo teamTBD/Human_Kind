@@ -47,7 +47,9 @@ class MainApp extends React.Component {
         })
     }
 
-
+    changeSuccess = (value) =>{
+        this.setState({success: value})
+    }
 
     render () {
       const {
@@ -112,7 +114,7 @@ class MainApp extends React.Component {
           <Route exact path="/deed_feed" render={(props)=>{
               console.log(props);
                 return(
-                    <Feed {...props} posts = {posts}/>
+                    <Feed {...props} posts = {posts} changeSuccess={this.changeSuccess}/>
                 )
             }}
           />

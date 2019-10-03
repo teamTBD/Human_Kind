@@ -103,11 +103,7 @@ class MainApp extends React.Component {
                 <Link to="/new_deed" style={{paddingTop: "4.64px", paddingBottom: "4.64px", paddingLeft: "9.28px", paddingRight: "9.28px"}}>Post Deed</Link>
             </NavItem>
             }
-              {logged_in &&
-            <NavItem>
-                <NavLink href="/AboutUs">About Us</NavLink>
-            </NavItem>
-            }
+        
             {logged_in &&
             <NavItem>
                 <a href={sign_out_route}>Sign Out</a>

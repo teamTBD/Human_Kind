@@ -67,7 +67,8 @@ class MainApp extends React.Component {
       const {
         logged_in,
         sign_in_route,
-        sign_out_route
+        sign_out_route,
+        current_user_id
       } = this.props
 
       const {posts} = this.state
@@ -133,7 +134,8 @@ class MainApp extends React.Component {
               console.log(props);
                 return(
                     <Feed {...props} posts = {posts} changeSuccess={this.changeSuccess}
-                    handleDeletePost={this.handleDeletePost}/>
+                    handleDeletePost={this.handleDeletePost}
+                    current_user_id={current_user_id}/>
                 )
             }}
           />
@@ -152,13 +154,13 @@ class MainApp extends React.Component {
                 )}}
 
           />
-          
+
           <Route exact path="/AboutUs" render={()=>{
               return(
               <AboutUs/>
               )
           }}
-          
+
           />
 
         </Router>

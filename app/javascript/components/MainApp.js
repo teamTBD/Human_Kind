@@ -84,11 +84,7 @@ class MainApp extends React.Component {
                 <NavLink href="/profile">Profile</NavLink>
             </NavItem>
             }
-            {logged_in &&
-            <NavItem>
-                <NavLink href="/AboutUs">About Us</NavLink>
-            </NavItem>
-            }
+          
 
             {logged_in &&
             <NavItem>
@@ -98,6 +94,11 @@ class MainApp extends React.Component {
             {logged_in &&
             <NavItem>
                 <NavLink href="/new_deed">Post Deed</NavLink>
+            </NavItem>
+            }
+              {logged_in &&
+            <NavItem>
+                <NavLink href="/AboutUs">About Us</NavLink>
             </NavItem>
             }
             {logged_in &&

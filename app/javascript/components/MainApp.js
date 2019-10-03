@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Nav, NavLink, NavItem, Jumbotron } from 'reactstrap'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import Feed from './pages/Feed'
 import Profile from './pages/Profile'
@@ -67,7 +67,8 @@ class MainApp extends React.Component {
       const {
         logged_in,
         sign_in_route,
-        sign_out_route
+        sign_out_route,
+        current_user_id
       } = this.props
 
       const {posts} = this.state
@@ -78,22 +79,28 @@ class MainApp extends React.Component {
 
 
 
-          <Nav>
+          <Nav style={{display: 'flex', justifyContent:"space-around"}}>
             {logged_in &&
             <NavItem>
-                <NavLink href="/profile">Profile</NavLink>
+
+                <Link to="/profile">Profile</Link>
             </NavItem>
             }
-          
 
             {logged_in &&
             <NavItem>
-                <NavLink href="/deed_feed">Deed Feed</NavLink>
+                <Link to="/AboutUs">About Us</Link>
+            </NavItem>
+            }
+
+            {logged_in &&
+            <NavItem>
+                <Link to="/deed_feed">Deed Feed</Link>
             </NavItem>
             }
             {logged_in &&
             <NavItem>
-                <NavLink href="/new_deed">Post Deed</NavLink>
+                <Link to="/new_deed" style={{paddingTop: "4.64px", paddingBottom: "4.64px", paddingLeft: "9.28px", paddingRight: "9.28px"}}>Post Deed</Link>
             </NavItem>
             }
               {logged_in &&
@@ -103,12 +110,12 @@ class MainApp extends React.Component {
             }
             {logged_in &&
             <NavItem>
-                <NavLink href={sign_out_route}>Sign Out</NavLink>
+                <a href={sign_out_route}>Sign Out</a>
             </NavItem>
             }
             {!logged_in &&
             <NavItem>
-                <NavLink href={sign_in_route}>Sign In</NavLink>
+                <a href={sign_in_route}>Sign In</a>
             </NavItem>
             }
           </Nav>
@@ -133,7 +140,8 @@ class MainApp extends React.Component {
               console.log(props);
                 return(
                     <Feed {...props} posts = {posts} changeSuccess={this.changeSuccess}
-                    handleDeletePost={this.handleDeletePost}/>
+                    handleDeletePost={this.handleDeletePost}
+                    current_user_id={current_user_id}/>
                 )
             }}
           />
@@ -152,13 +160,13 @@ class MainApp extends React.Component {
                 )}}
 
           />
-          
+
           <Route exact path="/AboutUs" render={()=>{
               return(
               <AboutUs/>
               )
           }}
-          
+
           />
 
         </Router>

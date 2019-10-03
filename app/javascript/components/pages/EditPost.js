@@ -10,7 +10,6 @@ class EditPost extends React.Component {
         super(props)
         this.state = {
             postID: props.match.params.id,
-            post: {},
             form:{
                 title: "",
                 description: "",
@@ -37,7 +36,7 @@ class EditPost extends React.Component {
     componentDidMount(){
         findPost(this.state.postID)
         .then((foundPost) => {
-            this.setState({post: foundPost})
+            this.setState({form: foundPost})
         })
     }
 
@@ -55,7 +54,6 @@ class EditPost extends React.Component {
                             onChange = {this.onChange}
                             value={this.state.form.title}
                             type="text"
-                            placeholder={post.title}
                             name="title"
                         />
                     </FormGroup>
@@ -65,7 +63,6 @@ class EditPost extends React.Component {
                             onChange = {this.onChange}
                             value={this.state.form.description}
                             type="text"
-                            placeholder={post.description}
                             name="description"
                         />
                     </FormGroup>
@@ -75,7 +72,7 @@ class EditPost extends React.Component {
                             onChange = {this.onChange}
                             value={this.state.form.location}
                             type="text"
-                            placeholder={post.location}
+
                             name="location"
                         />
                     </FormGroup>

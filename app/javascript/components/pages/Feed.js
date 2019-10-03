@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 class Feed extends React.Component {
+
     componentDidMount() {
         this.props.changeSuccess(false)
     }
@@ -12,7 +13,8 @@ class Feed extends React.Component {
     render () {
         const {
             posts,
-            handleDeletePost
+            handleDeletePost,
+            current_user_id
         } = this.props
     return (
       <React.Fragment>
@@ -21,10 +23,18 @@ class Feed extends React.Component {
             {posts.map((post) => {
                 return(
                     <div key={post.id}>
-                    <Link to={`/edit_post/${post.id}`}>{post.title}</Link>
+                        {post.title}
                         {post.description}
                         {post.location}
-                        <Button onClick={() => this.props.handleDeletePost(post.id)}>Delete Post</Button>
+                        {post.user_id === current_user_id &&
+                            <div>
+                            <Button>
+                                <Link to={`/edit_post/${post.id}`}>Edit Post
+                                </Link>
+                            </Button>
+                            <Button onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post</Button>
+                            </div>
+                        }
                     </div>
                 )
             })}

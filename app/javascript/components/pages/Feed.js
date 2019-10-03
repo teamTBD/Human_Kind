@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 class Feed extends React.Component {
+
     componentDidMount() {
         this.props.changeSuccess(false)
     }
@@ -31,7 +32,7 @@ class Feed extends React.Component {
                                 <Link to={`/edit_post/${post.id}`}>Edit Post
                                 </Link>
                             </Button>
-                            <Button onClick={() => this.props.handleDeletePost(post.id)}>Delete Post</Button>
+                            <Button onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post</Button>
                             </div>
                         }
                     </div>

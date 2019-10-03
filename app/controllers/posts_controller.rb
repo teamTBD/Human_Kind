@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :authenticate_user!, only: [:create, :destroy]
+    before_action :authenticate_user!, only: [:create, :update, :destroy]
 
     def index
         posts = Post.all

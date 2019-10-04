@@ -52,7 +52,7 @@ class MainApp extends React.Component {
         })
     }
 
-    componentWillMount() {
+    componentDidMount() {
         getPosts()
         .then( posts => {
             this.setState({posts})

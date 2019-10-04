@@ -78,7 +78,8 @@ class MainApp extends React.Component {
         <Router>
 
 
-
+        {console.log(this.state.posts)
+        }
           <Nav style={{display: 'flex', justifyContent:"space-around"}}>
             {logged_in &&
             <NavItem>

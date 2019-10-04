@@ -67,7 +67,8 @@ class MainApp extends React.Component {
       const {
         logged_in,
         sign_in_route,
-        sign_out_route
+        sign_out_route,
+        current_user_id
       } = this.props
 
       const {posts} = this.state
@@ -85,6 +86,7 @@ class MainApp extends React.Component {
                 <Link to="/profile">Profile</Link>
             </NavItem>
             }
+
             {logged_in &&
             <NavItem>
                 <Link to="/AboutUs">About Us</Link>
@@ -101,6 +103,7 @@ class MainApp extends React.Component {
                 <Link to="/new_deed" style={{paddingTop: "4.64px", paddingBottom: "4.64px", paddingLeft: "9.28px", paddingRight: "9.28px"}}>Post Deed</Link>
             </NavItem>
             }
+        
             {logged_in &&
             <NavItem>
                 <a href={sign_out_route}>Sign Out</a>
@@ -132,7 +135,8 @@ class MainApp extends React.Component {
           <Route exact path="/deed_feed" render={(props)=>{
                 return(
                     <Feed {...props} posts = {posts} changeSuccess={this.changeSuccess}
-                    handleDeletePost={this.handleDeletePost}/>
+                    handleDeletePost={this.handleDeletePost}
+                    current_user_id={current_user_id}/>
                 )
             }}
           />
@@ -151,13 +155,13 @@ class MainApp extends React.Component {
                 )}}
 
           />
-          
+
           <Route exact path="/AboutUs" render={()=>{
               return(
               <AboutUs/>
               )
           }}
-          
+
           />
 
         </Router>

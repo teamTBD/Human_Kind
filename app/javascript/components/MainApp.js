@@ -8,7 +8,8 @@ import Profile from './pages/Profile'
 import NewDeed from './pages/NewDeed'
 import EditPost from './pages/EditPost'
 import AboutUs from './pages/AboutUs'
-import { getPosts, createPost, editPost, deletePost } from './api'
+import LikeButton from './component/LikeButton'
+import { getPosts, createPost, editPost, deletePost, likePost } from './api'
 
 class MainApp extends React.Component {
     constructor(props){
@@ -51,6 +52,17 @@ class MainApp extends React.Component {
             })
         })
     }
+    
+    handleLikePost = (id) => {
+        likePost(id)
+        .then(likedPost => {
+            getPosts()
+            .then(posts=>{
+                this.setState({posts})
+            })
+        })
+    }
+    
 
     componentWillMount() {
         getPosts()
@@ -77,42 +89,39 @@ class MainApp extends React.Component {
       <React.Fragment>
         <Router>
 
-
-
           <Nav style={{display: 'flex', justifyContent:"space-around"}}>
             {logged_in &&
-            <NavItem>
-
-                <Link to="/profile">Profile</Link>
-            </NavItem>
+                <NavItem>
+                    <Link to="/profile">Profile</Link>
+                </NavItem>
             }
 
             {logged_in &&
-            <NavItem>
-                <Link to="/AboutUs">About Us</Link>
-            </NavItem>
+                <NavItem>
+                    <Link to="/AboutUs">About Us</Link>
+                </NavItem>
             }
 
             {logged_in &&
-            <NavItem>
-                <Link to="/deed_feed">Deed Feed</Link>
-            </NavItem>
+                <NavItem>
+                    <Link to="/deed_feed">Deed Feed</Link>
+                </NavItem>
             }
             {logged_in &&
-            <NavItem>
-                <Link to="/new_deed" style={{paddingTop: "4.64px", paddingBottom: "4.64px", paddingLeft: "9.28px", paddingRight: "9.28px"}}>Post Deed</Link>
-            </NavItem>
+                <NavItem>
+                    <Link to="/new_deed" style={{paddingTop: "4.64px", paddingBottom: "4.64px", paddingLeft: "9.28px", paddingRight: "9.28px"}}>Post Deed</Link>
+                </NavItem>
             }
         
             {logged_in &&
-            <NavItem>
-                <a href={sign_out_route}>Sign Out</a>
-            </NavItem>
+                <NavItem>
+                    <a href={sign_out_route}>Sign Out</a>
+                </NavItem>
             }
             {!logged_in &&
-            <NavItem>
-                <a href={sign_in_route}>Sign In</a>
-            </NavItem>
+                <NavItem>
+                    <a href={sign_in_route}>Sign In</a>
+                </NavItem>
             }
           </Nav>
 
@@ -135,9 +144,14 @@ class MainApp extends React.Component {
           <Route exact path="/deed_feed" render={(props)=>{
               console.log(props);
                 return(
-                    <Feed {...props} posts = {posts} changeSuccess={this.changeSuccess}
-                    handleDeletePost={this.handleDeletePost}
-                    current_user_id={current_user_id}/>
+                    <Feed
+                        {...props} 
+                        posts = {posts} 
+                        changeSuccess={this.changeSuccess}
+                        handleDeletePost={this.handleDeletePost}
+                        current_user_id={current_user_id}
+                        handleLikePost={this.handleLikePost}
+                    />
                 )
             }}
           />
@@ -162,7 +176,6 @@ class MainApp extends React.Component {
               <AboutUs/>
               )
           }}
-
           />
 
         </Router>

@@ -45,6 +45,20 @@ let deletePost = (id) => {
         })
 }
 
+let likePost = (id) => {
+    return fetch(`/posts/${id}`, {
+        body: JSON.stringify(id),
+        headers:{
+            "Content-Type": "application/json"
+        },
+        method: 'PATCH'
+    })
+        .then((resp) =>{
+            return resp
+        })
+}
+
+
 let findPost = function(id) {
     return fetch(`/posts/${id}`)
     .then((resp) => {
@@ -53,5 +67,5 @@ let findPost = function(id) {
     })
 }
 export {
-    getPosts, createPost, editPost, findPost, deletePost
+    getPosts, createPost, editPost, findPost, deletePost, likePost
 }

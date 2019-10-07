@@ -657,26 +657,22 @@
 "@fortawesome/fontawesome-common-types@^0.2.25":
   version "0.2.25"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.25.tgz#6df015905081f2762e5cfddeb7a20d2e9b16c786"
-  integrity sha512-3RuZPDuuPELd7RXtUqTCfed14fcny9UiPOkdr2i+cYxBoTOfQgxcDoq77fHiiHcgWuo1LoBUpvGxFF1H/y7s3Q==
 
 "@fortawesome/fontawesome-svg-core@^1.2.25":
   version "1.2.25"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.25.tgz#24b03391d14f0c6171e8cad7057c687b74049790"
-  integrity sha512-MotKnn53JKqbkLQiwcZSBJVYtTgIKFbh7B8+kd05TSnfKYPFmjKKI59o2fpz5t0Hzl35vVGU6+N4twoOpZUrqA==
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.25"
 
 "@fortawesome/free-solid-svg-icons@^5.11.2":
   version "5.11.2"
   resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.11.2.tgz#2f2f1459743a27902b76655a0d0bc5ec4d945631"
-  integrity sha512-zBue4i0PAZJUXOmLBBvM7L0O7wmsDC8dFv9IhpW5QL4kT9xhhVUsYg/LX1+5KaukWq4/cbDcKT+RT1aRe543sg==
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.25"
 
 "@fortawesome/react-fontawesome@^0.1.5":
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.1.5.tgz#8bc3cd5c617749534787a35e29caa7a6cff705c9"
-  integrity sha512-WYDKTgyAWOncujWhhzhW7k8sgO5Eo2pZTUL51yNzSQNBUwwr6rNKg/JUSE3iebaU1XShHw74aKc1kJ+jvtRNew==
   dependencies:
     prop-types "^15.5.10"
 
@@ -930,6 +926,12 @@ accepts@~1.3.4, accepts@~1.3.5, accepts@~1.3.7:
 acorn@^6.2.1:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.3.0.tgz#0087509119ffa4fc0a0041d1e93a417e68cb856e"
+
+activestorage@^5.2.0:
+  version "5.2.3"
+  resolved "https://registry.yarnpkg.com/activestorage/-/activestorage-5.2.3.tgz#04df0a194d15f7a04abbba313f584fbea2c5a66f"
+  dependencies:
+    spark-md5 "^3.0.0"
 
 ajv-errors@^1.0.0:
   version "1.0.1"
@@ -1451,7 +1453,6 @@ camelcase@^5.0.0, camelcase@^5.2.0:
 can-use-dom@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/can-use-dom/-/can-use-dom-0.1.0.tgz#22cc4a34a0abc43950f42c6411024a3f6366b45a"
-  integrity sha1-IsxKNKCrxDlQ9CxkEQJKP2NmtFo=
 
 caniuse-api@^3.0.0:
   version "3.0.0"
@@ -5222,6 +5223,13 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-activestorage-provider@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/react-activestorage-provider/-/react-activestorage-provider-0.8.0.tgz#4e64365dc089eb1149e975f90b223ed132b23012"
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    activestorage "^5.2.0"
+
 react-bootstrap@^1.0.0-beta.12:
   version "1.0.0-beta.12"
   resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-1.0.0-beta.12.tgz#49fb83e288b1b5fa86e4c51e145630ec8b8598bb"
@@ -5259,7 +5267,6 @@ react-dom@^16.10.1:
 react-facebook@^8.0.4:
   version "8.0.4"
   resolved "https://registry.yarnpkg.com/react-facebook/-/react-facebook-8.0.4.tgz#751e3014cc3a90131400ff24b1c4673bd042722e"
-  integrity sha512-Uka4acqxPTBUeH6NGx9ReJyi2WTkyN9vqURH5766tBLyP8h98fCneE43/S8Kd2uupNCgWHn3yse9MTw1udRNdw==
   dependencies:
     "@babel/runtime" "^7.4.2"
     can-use-dom "^0.1.0"
@@ -5268,7 +5275,6 @@ react-facebook@^8.0.4:
 react-icons@^3.7.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.7.0.tgz#64fe46231fabfeea27895edeae6c3b78114b8c8f"
-  integrity sha512-7MyPwjIhuyW0D2N3s4DEd0hGPGFf0sK+IIRKhc1FvSpZNVmnUoGvHbmAwzGJU+3my+fvihVWgwU5SDtlAri56Q==
   dependencies:
     camelcase "^5.0.0"
 
@@ -5344,7 +5350,6 @@ react-router@5.1.0:
 react-spinner-children@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/react-spinner-children/-/react-spinner-children-1.0.8.tgz#6fdd6a89593c5f233bb56f4deccb812382e6ca74"
-  integrity sha1-b91qiVk8XyM7tW9N7MuBI4LmynQ=
   dependencies:
     prop-types "^15.6.0"
     spin.js "^2.3.2"
@@ -5352,7 +5357,6 @@ react-spinner-children@^1.0.8:
 react-split-pane@^0.1.87:
   version "0.1.87"
   resolved "https://registry.yarnpkg.com/react-split-pane/-/react-split-pane-0.1.87.tgz#a7027ae554abfacca35f5f780288b07fe4ec4cbd"
-  integrity sha512-F22jqWyKB1WximT0U5HKdSuB9tmJGjjP+WUyveHxJJys3ANsljj163kCdsI6M3gdfyCVC+B2rq8sc5m2Ko02RA==
   dependencies:
     prop-types "^15.5.10"
     react-lifecycles-compat "^3.0.4"
@@ -5361,7 +5365,6 @@ react-split-pane@^0.1.87:
 react-style-proptype@^3.0.0:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/react-style-proptype/-/react-style-proptype-3.2.2.tgz#d8e998e62ce79ec35b087252b90f19f1c33968a0"
-  integrity sha512-ywYLSjNkxKHiZOqNlso9PZByNEY+FTyh3C+7uuziK0xFXu9xzdyfHwg4S9iyiRRoPCR4k2LqaBBsWVmSBwCWYQ==
   dependencies:
     prop-types "^15.5.4"
 
@@ -5978,7 +5981,6 @@ spdy@^4.0.1:
 spin.js@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/spin.js/-/spin.js-2.3.2.tgz#6caa56d520673450fd5cfbc6971e6d0772c37a1a"
-  integrity sha1-bKpW1SBnNFD9XPvGlx5tB3LDeho=
 
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"

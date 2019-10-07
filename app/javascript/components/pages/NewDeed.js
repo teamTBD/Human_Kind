@@ -1,8 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Nav } from 'reactstrap'
+import { Nav, Form, FormGroup, Label, Input, FormText, Button } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
-
 
 class NewDeed extends React.Component {
     constructor(props) {
@@ -35,40 +34,52 @@ class NewDeed extends React.Component {
         } = this.state
         const { success } = this.props
     return (
-      <React.Fragment>
+      
+    <React.Fragment >
+     <h1 style={{textAlign:'center'}}>Post Deed</h1>
+      <Form style={{marginLeft:'25rem', marginRight:'25rem', marginTop:'5rem',marginBottom:'5rem', textAlign:'center'}}>
+       <FormGroup>
+        
+          <Label>Title of Your Post</Label>
+            <Input
+              name="title"
+              value={title}
+              onChange = { this.onChange }
+              type='text'
+            />
+       </FormGroup>
+       <FormGroup>
+          <Label>Description of Your Deed</Label>
+            <Input
+              name="description"
+              value={description}
+              onChange = { this.onChange }
+              type='text'
+              />
+      </FormGroup>
+      <FormGroup>
+          <Label>Where did Your Deed Take Place?</Label>
+            <Input
+              name="location"
+              value={location}
+              onChange = { this.onChange }
+              type='text'
+            />
+      </FormGroup>
+          <Button size="lg" outline color="secondary" onClick={this.handleClick}>Post Deed</Button>
+          {success && <Redirect to="/deed_feed" /> }
+    </Form>
+  </React.Fragment>
 
-        <h1>Post Deed</h1>
-        <div>
-          <label>Title of Your Post</label>
-          <input
-            name="title"
-            value={title}
-            onChange = { this.onChange }
-            type='text'
-          />
-        </div>
-        <div>
-          <label>Description of Your Deed</label>
-          <input
-            name="description"
-            value={description}
-            onChange = { this.onChange }
-            type='text'
-          />
-        </div>
-        <div>
-          <label>Where did Your Deed Take Place?</label>
-          <input
-            name="location"
-            value={location}
-            onChange = { this.onChange }
-            type='text'
-          />
-        </div>
-
-        <button onClick={this.handleClick}>Post Deed</button>
-        {success && <Redirect to="/deed_feed" /> }
-      </React.Fragment>
+      
+        
+        
+        
+        
+       
+        
+       
+      
     );
   }
 }

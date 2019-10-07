@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Container, Button, Form, Label, Input, FormGroup } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
+import ActiveStorageProvider from 'react-activestorage-provider'
 
 import { findPost, editPost } from '../api'
 
@@ -16,6 +17,9 @@ class EditPost extends React.Component {
                 location: ""
             }
         }
+    }
+    handleSubmit = (post) => {
+        this.setState({post})
     }
 
     onChange = (e) => {
@@ -47,6 +51,52 @@ class EditPost extends React.Component {
         return (
           <React.Fragment>
             <Container>
+
+
+            <ActiveStorageProvider
+              endpoint={{
+                path: `/posts/${postID}`,
+                model: 'Post',
+                attribute: 'image',
+                method: 'PUT',
+              }}
+              onSubmit={this.handleSubmit}
+              render={({ handleUpload, uploads, ready }) => (
+                <div>
+                  <input
+                    type="file"
+                    disabled={!ready}
+                    onChange={e => handleUpload(e.currentTarget.files)}
+                  />
+
+                  {uploads.map(upload => {
+                    switch (upload.state) {
+                      case 'waiting':
+                        return <p key={upload.id}>Waiting to upload {upload.file.name}</p>
+                      case 'uploading':
+                        return (
+                          <p key={upload.id}>
+                            Uploading {upload.file.name}: {upload.progress}%
+                          </p>
+                        )
+                      case 'error':
+                        return (
+                          <p key={upload.id}>
+                            Error uploading {upload.file.name}: {upload.error}
+                          </p>
+                        )
+                      case 'finished':
+                        return (
+                          <p key={upload.id}>Finished uploading {upload.file.name}</p>
+                        )
+                    }
+                  })}
+                </div>
+              )}
+            />
+
+
+
                 <Form>
                     <FormGroup>
                         <Label for="title">Title of Your Post</Label>

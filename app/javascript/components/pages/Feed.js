@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Nav, Button } from 'reactstrap'
+import {Nav, Card, Container, CardImg, CardBody, CardText, CardTitle, CardSubtitle, Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import { Map as LeafletMap, TileLayer, Marker, Popup } from "react-leaflet"
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
@@ -80,26 +80,29 @@ class Feed extends React.Component {
                 {posts.map((post) => {
                     return(
                         <div key={post.id}>
-                            {post.title}
-                            {post.description}
-                            {post.location}
-                            {post.user_id === current_user_id &&
-                                <div>
-                                <Button>
-                                    <Link to={`/edit_post/${post.id}`}>Edit Post
-                                    </Link>
-                                </Button>
-                                <Button onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post</Button>
-                                </div>
-                            }
+                             <Card>
+                                <CardBody>
+                                    <CardImg src={post.image_url}/>
+                                    <CardTitle>{post.title}{post.image_url}</CardTitle>
+                                    <CardSubtitle>{post.location}</CardSubtitle>
+                                    <CardText>{post.description}</CardText>
+                                    {post.user_id === current_user_id &&
+                                        <div>
+                                            <Button>
+                                                <Link to={`/edit_post/${post.id}`}>Edit Post
+                                                </Link>
+                                            </Button>
+                                            <Button onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post
+                                            </Button>
+                                        </div>
+                                    }
+                                </CardBody>
+                            </Card>
                         </div>
                     )
                 })}
             </div>
         </React.Fragment>
-        );
-  }
+        )}
 }
-
-
 export default Feed

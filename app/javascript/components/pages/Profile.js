@@ -37,18 +37,24 @@ export default class Profile extends React.Component {
         {if(post.user_id == current_user_id){
           return(
             <div key={post.id}>
-                {post.title}
-                {post.description}
-                {post.location}
-                {post.user_id === current_user_id &&
-                    <div>
-                    <Button>
-                        <Link to={`/edit_post/${post.id}`}>Edit Post
-                        </Link>
-                    </Button>
-                    <Button onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post</Button>
-                    </div>
-                }
+                <Card>
+                  <CardBody>
+                      <CardImg src={post.image_url}/>
+                      <CardTitle>{post.title}{post.image_url}</CardTitle>
+                      <CardSubtitle>{post.location}</CardSubtitle>
+                      <CardText>{post.description}</CardText>
+                      {post.user_id === current_user_id &&
+                          <div>
+                              <Button>
+                                  <Link to={`/edit_post/${post.id}`}>Edit Post
+                                  </Link>
+                              </Button>
+                              <Button onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post
+                              </Button>
+                          </div>
+                      }
+                  </CardBody>
+              </Card>
             </div>
         )
         }}

@@ -28,23 +28,20 @@ class Feed extends React.Component {
         <div>
             {posts.map((post) => {
                 return(
-                
                     <div key={post.id}>
                         {post.title}
                         {post.description}
                         {post.location}
-                    <LikeButton postID={post.id} handleClick={this.props.handleLikePost}/>
-                        {post.user_id === current_user_id &&
-                            <div>
-                            <Button>
-                                <Link to={`/edit_post/${post.id}`}>Edit Post
-                                </Link>
-                            </Button>
-                            <Button onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post</Button>
-    
-                             
-                            </div>
-                        }
+                           <LikeButton postID={post.id} handleClick={this.props.handleLikePost}/>
+                                {post.user_id === current_user_id &&
+                                    <div>
+                                        <Button>
+                                            <Link to={`/edit_post/${post.id}`}>Edit Post
+                                            </Link>
+                                        </Button>
+                                        <Button onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post</Button>
+                                    </div>
+                                }
                     </div>
                      
                 )

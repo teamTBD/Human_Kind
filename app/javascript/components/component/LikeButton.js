@@ -8,12 +8,11 @@ class LikeButton extends React.Component {
   }
   
   render() {
-      const label = 'like'
     return (
-      <div className="customContainer">
-        <button className="btn btn-primary" onClick={this.handleClick}>
-          {label}</button>
-      </div>
+      <React.Fragment>
+        <button onClick={this.handleClick}>Like
+        </button>
+      </React.Fragment>
     );
   }
 }

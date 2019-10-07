@@ -53,9 +53,10 @@ class MainApp extends React.Component {
         })
     }
     
-    handleLikePost = (id) => {
-        likePost(id)
+    handleLikePost = (id, form) => {
+        likePost(id, form)
         .then(likedPost => {
+            this.setState({success: true})
             getPosts()
             .then(posts=>{
                 this.setState({posts})

@@ -45,17 +45,18 @@ let deletePost = (id) => {
         })
 }
 
-let likePost = (id) => {
-    return fetch(`/posts/${id}`, {
-        body: JSON.stringify(id),
+let likePost = (id, form) => {
+    return fetch(`/likes`, {
+        body: JSON.stringify({like: {post_id: id}}),
         headers:{
             "Content-Type": "application/json"
         },
-        method: 'PATCH'
+        method: 'POST'
     })
-        .then((resp) =>{
-            return resp
-        })
+    .then((response) => {
+        let json = response.json()
+        return json
+    })
 }
 
 

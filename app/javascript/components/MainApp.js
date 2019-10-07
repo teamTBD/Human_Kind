@@ -52,7 +52,7 @@ class MainApp extends React.Component {
         })
     }
 
-    componentWillMount() {
+    componentDidMount() {
         getPosts()
         .then( posts => {
             this.setState({posts})
@@ -76,8 +76,6 @@ class MainApp extends React.Component {
     return (
       <React.Fragment>
         <Router>
-
-
 
           <Nav style={{display: 'flex', justifyContent:"space-around"}}>
             {logged_in &&
@@ -133,7 +131,6 @@ class MainApp extends React.Component {
           />
 
           <Route exact path="/deed_feed" render={(props)=>{
-              console.log(props);
                 return(
                     <Feed {...props} posts = {posts} changeSuccess={this.changeSuccess}
                     handleDeletePost={this.handleDeletePost}

@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Nav, NavLink, NavItem, Jumbotron, Card, CardImg, CardTitle, CardHeader, CardText, CardLink, CardBody, CardFooter, CardSubtitle, ListGroup, ListGroupFlush, ListGroupItem, Row, Col, Media} from 'reactstrap'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Form, FormGroup, Nav, NavLink, NavItem, Jumbotron, Card, CardImg, CardTitle, CardHeader, CardText, CardLink, CardBody, CardFooter, CardSubtitle, ListGroup, ListGroupFlush, ListGroupItem, Row, Col, Media} from 'reactstrap'
+
+
+
 
 export default class Profile extends React.Component {
     render(){
@@ -24,12 +27,14 @@ export default class Profile extends React.Component {
         This is a little about me. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
       </Media>
     </Media>
+    
   </Col>
   
- 
- 
+  
+
  
   <Col sm="7">
+ 
     <h2 style={{ padding: 20, textAlign: 'center'}}>Your Deeds </h2>
     <ul style={{height: '500px', overflow: 'auto'}}>
      <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>

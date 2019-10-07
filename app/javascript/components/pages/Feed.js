@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Card, Container, CardImg, CardBody, CardText, CardTitle, CardSubtitle, Button } from 'reactstrap'
+import {Nav, Card, Container, CardImg, CardBody, CardText, CardTitle, CardSubtitle, Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
 
@@ -17,6 +17,7 @@ class Feed extends React.Component {
             current_user_id
         } = this.props
     return (
+
       <React.Fragment>
         <h1>Deed Feed</h1>
         <Container>
@@ -49,5 +50,15 @@ class Feed extends React.Component {
     );
   }
 }
+            
+                        
+          
+       
+                
+                          
+                    
+       
+        
+       
 
 export default Feed

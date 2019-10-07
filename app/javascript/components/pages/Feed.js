@@ -14,32 +14,30 @@ class Feed extends React.Component {
           lat: 32.5732878512982,
           lng: -117.107984521922,
           zoom: 12,
-          //needs to be a number as an initial value
-          markerLat: 0,
-          markerLng: 0, 
-          markerPosition: [0,0],
           markers: []
         }   
       }
-    //need this to load markers when switching between components
-    componentDidMount() {
+      handleMarkers = () => {
         const { posts } = this.props
-        this.props.changeSuccess(false)
         const provider = new OpenStreetMapProvider();
         posts.map((post)=>{
             provider.search({ query: post.location })
-            .then((result) => { 
-                this.setState({markerLat:result[0].y, markerLng:result[0].x})
+            .then((result) => {
                 let title = post.title
                 let description = post.description
                 let marker = {
-                    location: [this.state.markerLat, this.state.markerLng], 
+                    location: [result[0].y, result[0].x], 
                     title: title, 
                     description: description
                 }
                 this.setState({markers: [...this.state.markers, marker ]})
             })
         })
+      }
+    //need this to load markers when switching between components
+    componentDidMount() {
+        this.props.changeSuccess(false)
+        this.handleMarkers()
     }
     //used to load markers when the state of posts is changed
     componentDidUpdate(prevProps) {
@@ -47,21 +45,7 @@ class Feed extends React.Component {
         if(prevProps.posts != posts ){
             //used to reset state to rerender component
             this.setState({markers: []})
-            const provider = new OpenStreetMapProvider();
-            posts.map((post)=>{
-                provider.search({ query: post.location })
-                .then((result) => {
-                    this.setState({markerLat:result[0].y, markerLng:result[0].x})
-                    let title = post.title
-                    let description = post.description
-                    let marker = {
-                        location: [this.state.markerLat, this.state.markerLng], 
-                        title: title, 
-                        description: description
-                    }
-                    this.setState({markers: [...this.state.markers, marker ]})
-                })
-            })
+            this.handleMarkers()
             
         }
     }

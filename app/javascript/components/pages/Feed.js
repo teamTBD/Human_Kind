@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Card, Container, CardBody, CardText, CardTitle, CardSubtitle, Button } from 'reactstrap'
+import { Card, Container, CardImg, CardBody, CardText, CardTitle, CardSubtitle, Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
 
@@ -25,7 +25,8 @@ class Feed extends React.Component {
                     <div key={post.id}>
                         <Card>
                             <CardBody>
-                                <CardTitle>{post.title}</CardTitle>
+                                <CardImg src={post.image_url}/>
+                                <CardTitle>{post.title}{post.image_url}</CardTitle>
                                 <CardSubtitle>{post.location}</CardSubtitle>
                                 <CardText>{post.description}</CardText>
                                 {post.user_id === current_user_id &&

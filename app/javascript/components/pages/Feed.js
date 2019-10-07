@@ -32,16 +32,28 @@ class Feed extends React.Component {
                         {post.title}
                         {post.description}
                         {post.location}
-                           <LikeButton postID={post.id} handleClick={this.props.handleLikePost}/>
-                                {post.user_id === current_user_id &&
-                                    <div>
-                                        <Button>
-                                            <Link to={`/edit_post/${post.id}`}>Edit Post
-                                            </Link>
-                                        </Button>
-                                        <Button onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post</Button>
-                                    </div>
-                                }
+                            {user like id === current_user_id &&
+                                <div>
+                                    <LikeButton postID={post.id} handleClick={this.props.handleLikePost}/>
+                                </div>
+                            }
+                            {user like id !== current_user_id &&
+                                <div>
+                                    <LikeButton postID={post.id} handleClick={this.props.handleLikePost}/>
+                                </div>
+                            }
+                               <LikeButton postID={post.id} handleClick={this.props.handleLikePost}/>
+                           
+                            {post.user_id === current_user_id &&
+                                <div>
+                                    <Button>
+                                        <Link to={`/edit_post/${post.id}`}>Edit Post
+                                        </Link>
+                                    </Button>
+                                    
+                                    <Button onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post</Button>
+                                </div>
+                            }
                     </div>
                      
                 )

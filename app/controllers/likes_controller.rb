@@ -14,4 +14,13 @@ class LikesController < ApplicationController
         params.require(:like).permit(:post_id)
     end
 
+    def find
+        like= current_user.likes.where(post_id: params[:post_id]).first
+        if like
+            render json: like
+        else
+            head :no_content, status: 404
+        end
+    end
+    
 end

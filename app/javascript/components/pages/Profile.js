@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-import { Nav, NavLink, NavItem, Jumbotron, Card, CardImg, CardTitle, CardHeader, CardText, CardLink, CardBody, CardFooter, CardSubtitle, ListGroup, ListGroupFlush, ListGroupItem, Row, Col, Media} from 'reactstrap'
+import { Link } from 'react-router-dom'
+import { Nav, NavLink, NavItem, Jumbotron, Card, CardImg, CardTitle, CardHeader, CardText, CardLink, CardBody, CardFooter, CardSubtitle, ListGroup, ListGroupFlush, ListGroupItem, Row, Col, Media, Button} from 'reactstrap'
 
 export default class Profile extends React.Component {
     render(){
+      let { posts, current_user_id } = this.props
       return (
            
          
@@ -31,45 +32,26 @@ export default class Profile extends React.Component {
  
   <Col sm="7">
     <h2 style={{ padding: 20, textAlign: 'center'}}>Your Deeds </h2>
-    <ul style={{height: '500px', overflow: 'auto'}}>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-     <li>This is a test of the current state of the scroll bar and also chekcing if the column and row thing that i did worked properly and reactive</li>
-    </ul>
+    <div style={{height: '500px', overflow: 'auto'}}>
+      {posts.map((post) => {
+        return(
+            <div key={post.id}>
+                {post.title}
+                {post.description}
+                {post.location}
+                {post.user_id === current_user_id &&
+                    <div>
+                    <Button>
+                        <Link to={`/edit_post/${post.id}`}>Edit Post
+                        </Link>
+                    </Button>
+                    <Button onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post</Button>
+                    </div>
+                }
+            </div>
+        )
+      })}
+    </div>
    </Col>
     </Row>
     

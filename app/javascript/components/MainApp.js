@@ -149,7 +149,7 @@ class MainApp extends React.Component {
 
            <Route exact path="/profile" render={()=>{
                 return(
-                    <Profile posts = {posts} current_user_id={current_user_id}/>
+                    <Profile posts = {posts} current_user_id={current_user_id} handleDeletePost={this.handleDeletePost}/>
                 )}}
 
           />

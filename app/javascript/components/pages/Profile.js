@@ -34,7 +34,8 @@ export default class Profile extends React.Component {
     <h2 style={{ padding: 20, textAlign: 'center'}}>Your Deeds </h2>
     <div style={{height: '500px', overflow: 'auto'}}>
       {posts.map((post) => {
-        return(
+        {if(post.user_id == current_user_id){
+          return(
             <div key={post.id}>
                 {post.title}
                 {post.description}
@@ -50,6 +51,7 @@ export default class Profile extends React.Component {
                 }
             </div>
         )
+        }}
       })}
     </div>
    </Col>

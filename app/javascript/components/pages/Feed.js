@@ -17,9 +17,10 @@ class Feed extends React.Component {
             current_user_id
         } = this.props
     return (
-      <React.Fragment>
-        <h1>Deed Feed</h1>
-        <div>
+      <React.Fragment >
+       
+        <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
+         <h1>Deed Feed</h1>
             {posts.map((post) => {
                 return(
                     <div key={post.id}>

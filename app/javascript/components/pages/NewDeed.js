@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import { Nav } from 'reactstrap'
 import { Redirect } from 'react-router-dom'
 
-
 class NewDeed extends React.Component {
     constructor(props) {
         super(props)

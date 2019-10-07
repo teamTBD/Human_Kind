@@ -77,9 +77,6 @@ class MainApp extends React.Component {
       <React.Fragment>
         <Router>
 
-
-        {console.log(this.state.posts)
-        }
           <Nav style={{display: 'flex', justifyContent:"space-around"}}>
             {logged_in &&
             <NavItem>

@@ -40,11 +40,9 @@ class Feed extends React.Component {
         if(prevProps.posts != posts ){
         
             const provider = new OpenStreetMapProvider();
-            console.log(posts);
-            // console.log(posts[0].location);
             posts.map((post)=>{
                 provider.search({ query: post.location })
-                .then((result) => { 
+                .then((result) => {
                     this.setState({markerLat:result[0].y, markerLng:result[0].x})
                     this.setState({markers: [...this.state.markers, [this.state.markerLat, this.state.markerLng]]})
                 })
@@ -66,7 +64,6 @@ class Feed extends React.Component {
                 />
                 
                 {markers.map((marker ,index)=>{
-                {console.log(marker)}
                     return(
                         <Marker key= {index} position={marker} draggable={true}>
                             <Popup>

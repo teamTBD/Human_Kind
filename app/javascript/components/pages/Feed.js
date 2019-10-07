@@ -17,7 +17,7 @@ class Feed extends React.Component {
           markers: []
         }   
       }
-      handleMarkers = () => {
+    handleMarkers = () => {
         const { posts } = this.props
         const provider = new OpenStreetMapProvider();
         posts.map((post)=>{

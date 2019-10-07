@@ -37,9 +37,10 @@ class NewDeed extends React.Component {
     return (
       
     <React.Fragment >
-      <Form style={{marginLeft:'25rem', marginRight:'25rem', textAlign:'center'}}>
+     <h1 style={{textAlign:'center'}}>Post Deed</h1>
+      <Form style={{marginLeft:'25rem', marginRight:'25rem', marginTop:'5rem',marginBottom:'5rem', textAlign:'center'}}>
        <FormGroup>
-        <h1>Post Deed</h1>
+        
           <Label>Title of Your Post</Label>
             <Input
               name="title"
@@ -66,7 +67,7 @@ class NewDeed extends React.Component {
               type='text'
             />
       </FormGroup>
-          <Button onClick={this.handleClick}>Post Deed</Button>
+          <Button size="lg" outline color="secondary" onClick={this.handleClick}>Post Deed</Button>
           {success && <Redirect to="/deed_feed" /> }
     </Form>
   </React.Fragment>

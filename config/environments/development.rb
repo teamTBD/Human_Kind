@@ -28,8 +28,8 @@ Rails.application.configure do
 		config.cache_store = :null_store
 	end
 
-	# Store uploaded files on the local file system (see config/storage.yml for options).
-	config.active_storage.service = :local
+  # Store uploaded files on the local file system (see config/storage.yml for options).
+  config.active_storage.service = :amazon 
 
 	# Don't care if the mailer can't send.
 	config.action_mailer.raise_delivery_errors = false
@@ -63,4 +63,3 @@ Rails.application.configure do
 	config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 config.hosts << "1b846d6898c647df9a933bb7893eaa1d.vfs.cloud9.us-east-2.amazonaws.com"
 end
-

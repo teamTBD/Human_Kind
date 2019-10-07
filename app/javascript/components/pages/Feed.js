@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Nav, Button, ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText} from 'reactstrap'
+import {Nav, Card, Container, CardImg, CardBody, CardText, CardTitle, CardSubtitle, Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
 
@@ -17,37 +17,36 @@ class Feed extends React.Component {
             current_user_id
         } = this.props
     return (
-        
-        
-    <React.Fragment >
-     <div style={{textAlign: 'center'}}>
-      <h1>Deed Feed</h1>
-       <ListGroup style={{marginLeft:'25rem', marginRight:'25rem', marginTop:'5rem', marginBottom:'5rem'}}>
+
+      <React.Fragment>
+        <h1>Deed Feed</h1>
+        <Container>
             {posts.map((post) => {
                 return(
-                 <ListGroupItem> 
-                  <div key={post.id}>
-                    <ListGroupItemHeading>  {post.title} </ListGroupItemHeading>
-                     <ListGroupItemText>  
-                        {post.description}
-                        {post.location}
-                        {post.user_id === current_user_id &&
-                           <div>
-                             <Button outline color="info" size="sm">
-                                <Link to={`/edit_post/${post.id}`}>Edit Post
-                                </Link>
-                             </Button>
-                             <Button outline color="danger" size="sm" onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post</Button>
-                           </div> 
-                            }
-                     </ListGroupItemText>
-                  </div>
-                 </ListGroupItem>
+                    <div key={post.id}>
+                        <Card>
+                            <CardBody>
+                                <CardImg src={post.image_url}/>
+                                <CardTitle>{post.title}{post.image_url}</CardTitle>
+                                <CardSubtitle>{post.location}</CardSubtitle>
+                                <CardText>{post.description}</CardText>
+                                {post.user_id === current_user_id &&
+                                    <div>
+                                        <Button>
+                                            <Link to={`/edit_post/${post.id}`}>Edit Post
+                                            </Link>
+                                        </Button>
+                                        <Button onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post
+                                        </Button>
+                                    </div>
+                                }
+                            </CardBody>
+                        </Card>
+                    </div>
                 )
             })}
-       </ListGroup>
-      </div>
-    </React.Fragment>
+        </Container>
+      </React.Fragment>
     );
   }
 }

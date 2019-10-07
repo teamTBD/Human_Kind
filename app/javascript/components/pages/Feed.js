@@ -29,10 +29,6 @@ class Feed extends React.Component {
         posts.map((post)=>{
             provider.search({ query: post.location })
             .then((result) => { 
-            // console.log(result);
-            // console.log(result[0].x);
-            // console.log(result[0].y);
-            
                 this.setState({markerLat:result[0].y, markerLng:result[0].x})
                 this.setState({markers: [...this.state.markers, [this.state.markerLat, this.state.markerLng]]})
             })
@@ -49,10 +45,6 @@ class Feed extends React.Component {
             posts.map((post)=>{
                 provider.search({ query: post.location })
                 .then((result) => { 
-                // console.log(result);
-                // console.log(result[0].x);
-                // console.log(result[0].y);
-                
                     this.setState({markerLat:result[0].y, markerLng:result[0].x})
                     this.setState({markers: [...this.state.markers, [this.state.markerLat, this.state.markerLng]]})
                 })

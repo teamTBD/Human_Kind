@@ -32,17 +32,9 @@ class Feed extends React.Component {
                         {post.title}
                         {post.description}
                         {post.location}
-                            {user like id === current_user_id &&
-                                <div>
-                                    <LikeButton postID={post.id} handleClick={this.props.handleLikePost}/>
-                                </div>
-                            }
-                            {user like id !== current_user_id &&
-                                <div>
-                                    <LikeButton postID={post.id} handleClick={this.props.handleLikePost}/>
-                                </div>
-                            }
-                               <LikeButton postID={post.id} handleClick={this.props.handleLikePost}/>
+                            
+                                <LikeButton postID={post.id} handleClick={this.props.handleLikePost}/>
+                            
                            
                             {post.user_id === current_user_id &&
                                 <div>

@@ -54,7 +54,7 @@ class MainApp extends React.Component {
     }
     
     handleLikePost = (id, form) => {
-        likePost(id, form)
+        return likePost(id, form)
         .then(likedPost => {
             getPosts()
             .then(posts=>{

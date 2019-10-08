@@ -15,7 +15,7 @@ class Feed extends React.Component {
           lng: -117.107984521922,
           zoom: 12,
           markers: []
-        }   
+        }
       }
     handleMarkers = () => {
         const { posts } = this.props
@@ -26,8 +26,8 @@ class Feed extends React.Component {
                 let title = post.title
                 let description = post.description
                 let marker = {
-                    location: [result[0].y, result[0].x], 
-                    title: title, 
+                    location: [result[0].y, result[0].x],
+                    title: title,
                     description: description
                 }
                 this.setState({markers: [...this.state.markers, marker ]})
@@ -46,11 +46,11 @@ class Feed extends React.Component {
             //used to reset state to rerender component
             this.setState({markers: []})
             this.handleMarkers()
-            
+
         }
     }
-        
-        
+
+
     render(){
         const position = [this.state.lat, this.state.lng]
         const { markers } = this.state
@@ -62,7 +62,7 @@ class Feed extends React.Component {
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
                 />
-                
+
                 {markers.map((marker ,index)=>{
                     return(
                         <Marker key= {index} position={marker.location} draggable={true}>
@@ -70,13 +70,13 @@ class Feed extends React.Component {
                                 Title: {marker.title} <br/> Description: {marker.description}
                             </Popup>
                         </Marker>
-                    ) 
+                    )
                 })}
-                
+
             </LeafletMap>
             <h1>Deed Feed</h1>
             <div>
-                
+
                 {posts.map((post) => {
                     return(
                         <div key={post.id}>
@@ -84,7 +84,8 @@ class Feed extends React.Component {
                                 <CardBody>
                                     <CardImg src={post.image_url}/>
                                     <CardTitle>{post.title}{post.image_url}</CardTitle>
-                                    <CardSubtitle>{post.location}</CardSubtitle>
+                                    <CardSubtitle>User: {post.username}</CardSubtitle>
+                                    <CardSubtitle>Location: {post.location}</CardSubtitle>
                                     <CardText>{post.description}</CardText>
                                     {post.user_id === current_user_id &&
                                         <div>

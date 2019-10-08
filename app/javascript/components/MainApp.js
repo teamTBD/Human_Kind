@@ -64,7 +64,7 @@ class MainApp extends React.Component {
     }
     
 
-    componentWillMount() {
+    componentDidMount() {
         getPosts()
         .then( posts => {
             this.setState({posts})
@@ -142,7 +142,6 @@ class MainApp extends React.Component {
           />
 
           <Route exact path="/deed_feed" render={(props)=>{
-              console.log(props);
                 return(
                     <Feed
                         {...props} 
@@ -166,7 +165,9 @@ class MainApp extends React.Component {
 
            <Route exact path="/profile" render={()=>{
                 return(
-                    <Profile />
+                    <Profile posts = {posts}
+                    handleDeletePost={this.handleDeletePost}
+                    current_user_id={current_user_id}/>
                 )}}
 
           />

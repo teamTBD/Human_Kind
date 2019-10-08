@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import {Nav, Card, Container, CardImg, Row, Col, CardBody, CardText, CardTitle, CardSubtitle, Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
+import LikeButton from '../component/LikeButton'
 import { Map as LeafletMap, TileLayer, Marker, Popup } from "react-leaflet"
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
 
@@ -50,11 +51,10 @@ class Feed extends React.Component {
         }
     }
 
-
     render(){
         const position = [this.state.lat, this.state.lng]
         const { markers } = this.state
-        const { posts, current_user_id } = this.props
+        const { posts, current_user_id, handleLikePost } = this.props
         return (
         <React.Fragment>
         <Container className='pt-3' style={{background:'#58B4CC'}}>
@@ -83,6 +83,7 @@ class Feed extends React.Component {
 
                 {posts.map((post) => {
                     return(
+
                         <div key={post.id} className='p-1'>
                          <Card className='p-1'>
                             <CardBody style={{background:"#E6F9EC"}}>
@@ -105,12 +106,13 @@ class Feed extends React.Component {
                             </center>
                             </CardBody>
                          </Card>
+
                         </div>
                     )
                 })}
             </div>
             </Container>
         </React.Fragment>
-        )}
+    )}
 }
 export default Feed

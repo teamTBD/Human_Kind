@@ -8,7 +8,8 @@ import Profile from './pages/Profile'
 import NewDeed from './pages/NewDeed'
 import EditPost from './pages/EditPost'
 import AboutUs from './pages/AboutUs'
-import { getPosts, createPost, editPost, deletePost } from './api'
+import LikeButton from './component/LikeButton'
+import { getPosts, createPost, editPost, deletePost, likePost } from './api'
 
 class MainApp extends React.Component {
     constructor(props){
@@ -51,6 +52,17 @@ class MainApp extends React.Component {
             })
         })
     }
+    
+    handleLikePost = (id, form) => {
+        return likePost(id, form)
+        .then(likedPost => {
+            getPosts()
+            .then(posts=>{
+                this.setState({posts})
+            })
+        })
+    }
+    
 
     componentDidMount() {
         getPosts()
@@ -127,7 +139,6 @@ class MainApp extends React.Component {
               </Jumbotron>
           </Container>
 
-
           <Route exact path="/edit_post/:id" render={(props)=>{
                 return(
                     <EditPost {...props}
@@ -138,9 +149,14 @@ class MainApp extends React.Component {
 
           <Route exact path="/deed_feed" render={(props)=>{
                 return(
-                    <Feed {...props} posts = {posts} changeSuccess={this.changeSuccess}
-                    handleDeletePost={this.handleDeletePost}
-                    current_user_id={current_user_id}/>
+                    <Feed
+                        {...props} 
+                        posts = {posts} 
+                        changeSuccess={this.changeSuccess}
+                        handleDeletePost={this.handleDeletePost}
+                        current_user_id={current_user_id}
+                        handleLikePost={this.handleLikePost}
+                    />
                 )
             }}
           />
@@ -167,7 +183,6 @@ class MainApp extends React.Component {
               <AboutUs/>
               )
           }}
-
           />
 
         </Router>

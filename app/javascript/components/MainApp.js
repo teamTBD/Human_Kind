@@ -9,7 +9,7 @@ import NewDeed from './pages/NewDeed'
 import EditPost from './pages/EditPost'
 import AboutUs from './pages/AboutUs'
 import LikeButton from './component/LikeButton'
-import { getPosts, createPost, editPost, deletePost, likePost } from './api'
+import { getPosts, createPost, editPost, deletePost, likePost, unlikePost } from './api'
 
 class MainApp extends React.Component {
     constructor(props){
@@ -53,8 +53,8 @@ class MainApp extends React.Component {
         })
     }
     
-    handleLikePost = (id, form) => {
-        return likePost(id, form)
+    handleLikePost = (id) => {
+        return likePost(id)
         .then(likedPost => {
             getPosts()
             .then(posts=>{
@@ -63,7 +63,16 @@ class MainApp extends React.Component {
         })
     }
     
-
+    handleUnlikePost = (id) => {
+        return unlikePost(id)
+        .then(unlikedPost => {
+            getPosts()
+            .then(posts=>{
+                this.setState({posts})
+            })
+        })
+    }
+    
     componentDidMount() {
         getPosts()
         .then( posts => {
@@ -150,6 +159,7 @@ class MainApp extends React.Component {
                         handleDeletePost={this.handleDeletePost}
                         current_user_id={current_user_id}
                         handleLikePost={this.handleLikePost}
+                        handleUnlikePost={this.handleUnlikePost}
                     />
                 )
             }}

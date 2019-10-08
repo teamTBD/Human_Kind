@@ -127,7 +127,7 @@ class EditPost extends React.Component {
                         />
                     </FormGroup>
                 </Form>
-                <Button onClick={this.handleClick}>Edit Post</Button>
+                <Button onClick={this.handleClick}>Save Changes</Button>
             </Container>
             {success && <Redirect to="/deed_feed" /> }
           </React.Fragment>

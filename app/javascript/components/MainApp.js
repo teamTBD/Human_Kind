@@ -8,7 +8,8 @@ import Profile from './pages/Profile'
 import NewDeed from './pages/NewDeed'
 import EditPost from './pages/EditPost'
 import AboutUs from './pages/AboutUs'
-import { getPosts, createPost, editPost, deletePost } from './api'
+import LikeButton from './component/LikeButton'
+import { getPosts, createPost, editPost, deletePost, likePost, unlikePost } from './api'
 
 class MainApp extends React.Component {
     constructor(props){
@@ -51,7 +52,27 @@ class MainApp extends React.Component {
             })
         })
     }
-
+    
+    handleLikePost = (id) => {
+        return likePost(id)
+        .then(likedPost => {
+            getPosts()
+            .then(posts=>{
+                this.setState({posts})
+            })
+        })
+    }
+    
+    handleUnlikePost = (id) => {
+        return unlikePost(id)
+        .then(unlikedPost => {
+            getPosts()
+            .then(posts=>{
+                this.setState({posts})
+            })
+        })
+    }
+    
     componentDidMount() {
         getPosts()
         .then( posts => {
@@ -126,7 +147,6 @@ class MainApp extends React.Component {
               </Jumbotron>
           </Container>
 
-
           <Route exact path="/edit_post/:id" render={(props)=>{
                 return(
                     <EditPost {...props}
@@ -137,9 +157,15 @@ class MainApp extends React.Component {
 
           <Route exact path="/deed_feed" render={(props)=>{
                 return(
-                    <Feed {...props} posts = {posts} changeSuccess={this.changeSuccess}
-                    handleDeletePost={this.handleDeletePost}
-                    current_user_id={current_user_id}/>
+                    <Feed
+                        {...props} 
+                        posts = {posts} 
+                        changeSuccess={this.changeSuccess}
+                        handleDeletePost={this.handleDeletePost}
+                        current_user_id={current_user_id}
+                        handleLikePost={this.handleLikePost}
+                        handleUnlikePost={this.handleUnlikePost}
+                    />
                 )
             }}
           />
@@ -152,9 +178,13 @@ class MainApp extends React.Component {
             }}
           />
 
-           <Route exact path="/profile" render={()=>{
+           <Route exact path="/profile" render={(props)=>{
                 return(
-                    <Profile posts = {posts}
+                    <Profile
+                    {...props}
+                    handleLikePost={this.handleLikePost}
+                    handleUnlikePost={this.handleUnlikePost}
+                    posts = {posts}
                     handleDeletePost={this.handleDeletePost}
                     current_user_id={current_user_id}/>
                 )}}
@@ -166,7 +196,6 @@ class MainApp extends React.Component {
               <AboutUs/>
               )
           }}
-
           />
 
         </Router>

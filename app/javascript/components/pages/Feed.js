@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import {Nav, Card, Container, CardImg, CardBody, CardText, CardTitle, CardSubtitle, Button } from 'reactstrap'
+import {Nav, Card, Container, CardImg, CardBody, CardText, CardTitle, CardSubtitle, Button, } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import LikeButton from '../component/LikeButton'
 import { Map as LeafletMap, TileLayer, Marker, Popup } from "react-leaflet"
@@ -101,6 +101,7 @@ class Feed extends React.Component {
                                             </Button>
                                             <Button onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post
                                             </Button>
+                                    
                                         </div>
                                     }
                                 </CardBody>

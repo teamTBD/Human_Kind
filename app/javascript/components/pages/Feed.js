@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
-import {Nav, Card, Container, CardImg, Row, Col, CardBody, CardText, CardTitle, CardSubtitle, Button } from 'reactstrap'
+
+import {Nav, Card, Container, CardImg, CardBody, CardText, CardTitle, CardSubtitle, Button, } from 'reactstrap'
+
 import { Link } from 'react-router-dom'
 import LikeButton from '../component/LikeButton'
 import { Map as LeafletMap, TileLayer, Marker, Popup } from "react-leaflet"
@@ -106,6 +108,7 @@ class Feed extends React.Component {
                             </center>
                             </CardBody>
                          </Card>
+
 
                         </div>
                     )

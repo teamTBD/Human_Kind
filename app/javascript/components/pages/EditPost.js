@@ -50,10 +50,11 @@ class EditPost extends React.Component {
 
         return (
           <React.Fragment>
-            <Container style={{background:'#58B4CC'}}>
+            <Container className='p-4' style={{background:'#58B4CC'}}>
+            <center>
                 <Form>
-                    <FormGroup>
-                        <Label className='mt-4' style={{color:'white'}} for="title">Title of Your Post</Label>
+                    <FormGroup style={{width:'50%', textAlign:'center'}}>
+                        <Label className='mt-2' style={{color:'white'}} for="title">Title of Your Post</Label>
                         <Input
                             onChange = {this.onChange}
                             value={this.state.form.title}
@@ -61,16 +62,7 @@ class EditPost extends React.Component {
                             name="title"
                         />
                     </FormGroup>
-                    <FormGroup>
-                        <Label style={{color:'white'}} for="description">Description of Your Post</Label>
-                        <Input
-                            onChange = {this.onChange}
-                            value={this.state.form.description}
-                            type="text"
-                            name="description"
-                        />
-                    </FormGroup>
-                    <FormGroup>
+                    <FormGroup style={{width:'50%', textAlign:'center'}}>
                         <Label style={{color:'white'}} for="location">Location of Your Deed</Label>
                         <Input
                             onChange = {this.onChange}
@@ -80,7 +72,18 @@ class EditPost extends React.Component {
                             name="location"
                         />
                     </FormGroup>
+                    <FormGroup style={{width:'50%', textAlign:'center'}}>
+                    <Label style={{color:'white'}} for="description">Description of Your Post</Label>
+                    <Input
+                    onChange = {this.onChange}
+                    value={this.state.form.description}
+                    type="textarea"
+                    rows='3'
+                    name="description"
+                    />
+                    </FormGroup>
                 </Form>
+
                 <p style={{color:'white'}}>Upload Photo:</p>
                 <ActiveStorageProvider
                   endpoint={{
@@ -125,6 +128,7 @@ class EditPost extends React.Component {
                 />
 
                 <Button className='m-4' style={{color:"#58B4C"}} onClick={this.handleClick}>Save Changes</Button>
+                </center>
             </Container>
             {success && <Redirect to="/deed_feed" /> }
           </React.Fragment>

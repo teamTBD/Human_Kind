@@ -8,7 +8,7 @@ export default class Profile extends React.Component {
       let { posts, current_user_id } = this.props
       return (
         <React.Fragment>
-            <Container style={{background:"#58B4CC"}}>
+            <Container className='p-4' style={{background:"#58B4CC"}}>
               <Row>
                 <Col sm="5">
                 <Media style={{border: '1.5px solid rgba(199, 187, 187, 0.5)', margin:'105px 10px 0px 20px', background: "#E6F9EC" }} >
@@ -34,15 +34,15 @@ export default class Profile extends React.Component {
                                   <CardBody style={{background: "#E6F9EC"}}>
                                       <CardImg src={post.image_url}/>
                                       <CardTitle>{post.title}{post.image_url}</CardTitle>
-                                      <CardSubtitle>{post.location}</CardSubtitle>
-                                      <CardText>{post.description}</CardText>
+                                      <CardSubtitle>Location: {post.location}</CardSubtitle>
+                                      <CardText>Description: {post.description}</CardText>
                                       {post.user_id === current_user_id &&
                                           <div>
-                                              <Button>
-                                                  <Link style={{color: "#58B4CC"}} to={`/edit_post/${post.id}`}>Edit Post
+                                              <Button style={{background: "#58B4CC", marginRight:'2px'}}>
+                                                  <Link style={{color: "white"}} to={`/edit_post/${post.id}`}>Edit Post
                                                   </Link>
                                               </Button>
-                                              <Button style={{color: "#58B4CC"}} onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post
+                                              <Button style={{background: "#58B4CC", color: "white"}} onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post
                                               </Button>
                                           </div>
                                       }

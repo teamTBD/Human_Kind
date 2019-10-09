@@ -17,7 +17,7 @@ export default class AboutUs extends React.Component {
     render(){
         return (
             <div>
-                <Container style={{background:"#58B4CC"}}>
+                <Container className='p-4' style={{background:"#58B4CC"}}>
                 <h1 className='p-3' style={{textAlign: 'center', color:'white'}}>A Little About Us</h1>
                   <CardDeck style={{ textAlign:'center', margin:'5px', marginBottom:'20px'}}>
                       <Card>

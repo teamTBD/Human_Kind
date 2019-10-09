@@ -173,9 +173,13 @@ class MainApp extends React.Component {
             }}
           />
 
-           <Route exact path="/profile" render={()=>{
+           <Route exact path="/profile" render={(props)=>{
                 return(
-                    <Profile posts = {posts}
+                    <Profile
+                    {...props}
+                    handleLikePost={this.handleLikePost}
+                    handleUnlikePost={this.handleUnlikePost}
+                    posts = {posts}
                     handleDeletePost={this.handleDeletePost}
                     current_user_id={current_user_id}/>
                 )}}

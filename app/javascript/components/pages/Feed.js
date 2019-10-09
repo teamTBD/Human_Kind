@@ -92,6 +92,7 @@ class Feed extends React.Component {
                                     handleClick={this.props.handleLikePost}
                                     unlikeHandleClick={this.props.handleUnlikePost}
                                     />
+                                    <p> likes: {post.likes} </p>
                                     {post.user_id === current_user_id &&
                                         <div>
                                             <Button>

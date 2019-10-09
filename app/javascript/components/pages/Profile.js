@@ -23,7 +23,7 @@ export default class Profile extends React.Component {
               </Media>
             </Col>
             <Col sm="7">
-              <h2 style={{ padding: 20, textAlign: 'center'}}>Your Deeds </h2>
+              <h2 id="deedTitle" style={{ padding: 20, textAlign: 'center'}}>Your Deeds</h2>
               <div style={{height: '500px', overflow: 'auto'}}>
                 {posts.map((post) => {
                   {if(post.user_id === current_user_id){

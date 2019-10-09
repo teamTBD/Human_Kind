@@ -101,7 +101,6 @@ class MainApp extends React.Component {
               <Nav style={{display:'flex', background:"#58B4CC", justifyContent:"space-around"}} className='ptb-2'>
                 {logged_in &&
                 <NavItem className='mt-2'>
-
                     <h3><Link to="/profile" style={{color:"white"}} >Profile</Link></h3>
                 </NavItem>
                 }

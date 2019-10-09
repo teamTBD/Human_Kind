@@ -59,9 +59,9 @@ class Feed extends React.Component {
         const { posts, current_user_id, handleLikePost } = this.props
         return (
         <React.Fragment>
-        <Container className='pt-3' style={{background:'#58B4CC'}}>
+        <Container className='p-4' style={{background:'#58B4CC'}}>
             <center><h1 className='p-3' style={{color:'white'}}>Deed Feed</h1></center>
-            <LeafletMap center={position} zoom={this.state.zoom}>
+            <LeafletMap center={position} className='p-3' zoom={this.state.zoom}>
                 <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
@@ -97,11 +97,11 @@ class Feed extends React.Component {
                                 <h4>Description: {post.description}</h4>
                                 {post.user_id === current_user_id &&
                                     <div>
-                                        <Button>
-                                            <Link style={{color:'#58B4CC'}} to={`/edit_post/${post.id}`}>Edit Post
+                                        <Button style={{background:'#58B4CC', color:'white', marginRight:'2px'}}>
+                                            <Link style={{color:'white'}} to={`/edit_post/${post.id}`}>Edit Post
                                             </Link>
                                         </Button>
-                                        <Button style={{color:'#58B4CC'}} onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post
+                                        <Button style={{background:'#58B4CC', color:'white'}} onClick={() => window.confirm("Are you sure you wish to delete post?") && this.props.handleDeletePost(post.id)}>Delete Post
                                         </Button>
                                     </div>
                                 }

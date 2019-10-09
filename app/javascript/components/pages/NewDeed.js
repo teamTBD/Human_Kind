@@ -38,8 +38,9 @@ class NewDeed extends React.Component {
     <React.Fragment >
     <Container className='p-4' style={{background:'#58B4CC'}}>
          <h1 className='pt-4' style={{textAlign:'center', color:'white'}}>Post Deed</h1>
+         <center>
           <Form >
-           <FormGroup style={{marginLeft:'25rem', marginRight:'25rem', marginTop:'3rem',marginBottom:'2rem', textAlign:'center'}}>
+           <FormGroup style={{width:"50%", textAlign:'center'}}>
 
               <Label style={{color:'white'}}>Title of Your Post</Label>
                 <Input
@@ -49,7 +50,7 @@ class NewDeed extends React.Component {
                   type='text'
                 />
            </FormGroup>
-          <FormGroup style={{marginLeft:'25rem', marginRight:'25rem', marginTop:'2rem',marginBottom:'2rem', textAlign:'center'}}>
+          <FormGroup style={{width:"50%", textAlign:'center'}}>
               <Label style={{color:'white'}}>Where did Your Deed Take Place?</Label>
                 <Input
                   name="location"
@@ -58,7 +59,7 @@ class NewDeed extends React.Component {
                   type='text'
                 />
           </FormGroup>
-          <FormGroup style={{marginLeft:'25rem', marginRight:'25rem', marginTop:'2rem',marginBottom:'2rem', textAlign:'center'}}>
+          <FormGroup style={{width:"50%", textAlign:'center'}}>
             <Label style={{color:'white'}}>Description of Your Deed</Label>
                 <Input
                     type='textarea'
@@ -68,9 +69,10 @@ class NewDeed extends React.Component {
                     onChange = { this.onChange }
                 />
           </FormGroup>
-              <center><Button size="md" outline color="secondary" onClick={this.handleClick}>Post Deed</Button></center>
+              <Button size="md" outline color="secondary" onClick={this.handleClick}>Post Deed</Button>
               {success && <Redirect to="/deed_feed" /> }
         </Form>
+        </center>
     </Container>
   </React.Fragment>
 

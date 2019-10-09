@@ -50,56 +50,10 @@ class EditPost extends React.Component {
 
         return (
           <React.Fragment>
-            <Container>
-
-
-            <ActiveStorageProvider
-              endpoint={{
-                path: `/posts/${postID}`,
-                model: 'Post',
-                attribute: 'image',
-                method: 'PUT',
-              }}
-              onSubmit={this.handleSubmit}
-              render={({ handleUpload, uploads, ready }) => (
-                <div>
-                  <input
-                    type="file"
-                    disabled={!ready}
-                    onChange={e => handleUpload(e.currentTarget.files)}
-                  />
-
-                  {uploads.map(upload => {
-                    switch (upload.state) {
-                      case 'waiting':
-                        return <p key={upload.id}>Waiting to upload {upload.file.name}</p>
-                      case 'uploading':
-                        return (
-                          <p key={upload.id}>
-                            Uploading {upload.file.name}: {upload.progress}%
-                          </p>
-                        )
-                      case 'error':
-                        return (
-                          <p key={upload.id}>
-                            Error uploading {upload.file.name}: {upload.error}
-                          </p>
-                        )
-                      case 'finished':
-                        return (
-                          <p key={upload.id}>Finished uploading {upload.file.name}</p>
-                        )
-                    }
-                  })}
-                </div>
-              )}
-            />
-
-
-
+            <Container style={{background:'#58B4CC'}}>
                 <Form>
                     <FormGroup>
-                        <Label for="title">Title of Your Post</Label>
+                        <Label className='mt-4' style={{color:'white'}} for="title">Title of Your Post</Label>
                         <Input
                             onChange = {this.onChange}
                             value={this.state.form.title}
@@ -108,7 +62,7 @@ class EditPost extends React.Component {
                         />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="description">Description of Your Post</Label>
+                        <Label style={{color:'white'}} for="description">Description of Your Post</Label>
                         <Input
                             onChange = {this.onChange}
                             value={this.state.form.description}
@@ -117,7 +71,7 @@ class EditPost extends React.Component {
                         />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="location">Location of Your Deed</Label>
+                        <Label style={{color:'white'}} for="location">Location of Your Deed</Label>
                         <Input
                             onChange = {this.onChange}
                             value={this.state.form.location}
@@ -127,7 +81,50 @@ class EditPost extends React.Component {
                         />
                     </FormGroup>
                 </Form>
-                <Button onClick={this.handleClick}>Save Changes</Button>
+                <p style={{color:'white'}}>Upload Photo:</p>
+                <ActiveStorageProvider
+                  endpoint={{
+                    path: `/posts/${postID}`,
+                    model: 'Post',
+                    attribute: 'image',
+                    method: 'PUT',
+                  }}
+                  onSubmit={this.handleSubmit}
+                  render={({ handleUpload, uploads, ready }) => (
+                    <div>
+                      <input
+                        type="file"
+                        disabled={!ready}
+                        onChange={e => handleUpload(e.currentTarget.files)}
+                      />
+
+                      {uploads.map(upload => {
+                        switch (upload.state) {
+                          case 'waiting':
+                            return <p key={upload.id}>Waiting to upload {upload.file.name}</p>
+                          case 'uploading':
+                            return (
+                              <p key={upload.id}>
+                                Uploading {upload.file.name}: {upload.progress}%
+                              </p>
+                            )
+                          case 'error':
+                            return (
+                              <p key={upload.id}>
+                                Error uploading {upload.file.name}: {upload.error}
+                              </p>
+                            )
+                          case 'finished':
+                            return (
+                              <p key={upload.id}>Finished uploading {upload.file.name}</p>
+                            )
+                        }
+                      })}
+                    </div>
+                  )}
+                />
+
+                <Button className='m-4' style={{color:"#58B4C"}} onClick={this.handleClick}>Save Changes</Button>
             </Container>
             {success && <Redirect to="/deed_feed" /> }
           </React.Fragment>

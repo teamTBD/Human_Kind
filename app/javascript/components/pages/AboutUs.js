@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Card, Button, CardImg, CardTitle, CardText, CardDeck,
+import {Card, Button, CardImg, CardTitle, CardText, CardDeck, Container,
   CardSubtitle, CardBody, Image} from 'reactstrap'
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
@@ -16,12 +16,13 @@ export default class AboutUs extends React.Component {
     render(){
         return (
             <div>
-            <h1  style={{textAlign: 'center'}}>A Little About Us</h1>
+                <Container style={{background:"#58B4CC"}}>
+                <h1 className='p-3' style={{textAlign: 'center', color:'white'}}>A Little About Us</h1>
                   <CardDeck style={{ textAlign:'center', margin:'5px', marginBottom:'20px'}}>
                       <Card>
                         <CardImg top width="100%" src="https://style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="Card image cap" />
                         <CardBody>
-                        
+
                           <CardTitle>Brian Lin</CardTitle>
                           <CardSubtitle>Card subtitle</CardSubtitle>
                           <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
@@ -32,7 +33,7 @@ export default class AboutUs extends React.Component {
                       <Card>
                         <CardImg top width="100%" src="https://style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="Card image cap" />
                         <CardBody>
-                        
+
                           <CardTitle>Drew Yuri</CardTitle>
                           <CardSubtitle>Card subtitle</CardSubtitle>
                           <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
@@ -43,7 +44,7 @@ export default class AboutUs extends React.Component {
                       <Card>
                         <CardImg top width="100%" src="https://style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="Card image cap" />
                         <CardBody>
-                        
+
                           <CardTitle>Josh Steinbock</CardTitle>
                           <CardSubtitle>Card subtitle</CardSubtitle>
                           <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
@@ -52,7 +53,7 @@ export default class AboutUs extends React.Component {
                         </CardBody>
                       </Card>
                     </CardDeck>
-                  
+
                 <CardDeck style={{textAlign:'center',margin:'5px', marginBottom:'20px'}}>
                       <Card>
                         <CardImg top width="100%" src="https://style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="Card image cap" />
@@ -67,8 +68,8 @@ export default class AboutUs extends React.Component {
                       <Card>
                         <CardImg top width="100%" src="https://style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="Card image cap" />
                         <CardBody>
-                          
-                        
+
+
                           <CardTitle>Rob Osborn</CardTitle>
                           <CardSubtitle>Card subtitle</CardSubtitle>
                           <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
@@ -79,7 +80,7 @@ export default class AboutUs extends React.Component {
                       <Card>
                         <CardImg top width="100%" src="https://style.anu.edu.au/_anu/4/images/placeholders/person.png" alt="Card image cap" />
                         <CardBody>
-                        
+
                           <CardTitle>Sebastian Becerra</CardTitle>
                           <CardSubtitle>Card subtitle</CardSubtitle>
                           <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
@@ -88,13 +89,12 @@ export default class AboutUs extends React.Component {
                         </CardBody>
                       </Card>
                     </CardDeck>
-            
-                        
-                        
-            
+
+
+
+                </Container>
             </div>
-            
+
             )
     }
 }
-

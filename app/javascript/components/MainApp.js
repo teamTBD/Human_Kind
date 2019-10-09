@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Nav, NavLink, NavItem, Jumbotron } from 'reactstrap'
+import { Nav, NavLink, NavItem, Container, Jumbotron } from 'reactstrap'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import Feed from './pages/Feed'
@@ -97,51 +97,56 @@ class MainApp extends React.Component {
     return (
       <React.Fragment>
         <Router>
+            <Container>
+              <Nav style={{display:'flex', background:"#58B4CC", justifyContent:"space-around"}} className='ptb-2'>
+                {logged_in &&
+                <NavItem className='mt-2'>
+                    <h3><Link to="/profile" style={{color:"white"}} >Profile</Link></h3>
+                </NavItem>
+                }
 
-          <Nav style={{display: 'flex', justifyContent:"space-around"}}>
-            {logged_in &&
-                <NavItem>
-                    <Link to="/profile">Profile</Link>
+                {logged_in &&
+                <NavItem className='mt-2'>
+                    <h3><Link to="/AboutUs" style={{color:"white"}}>About Us</Link></h3>
                 </NavItem>
-            }
+                }
 
-            {logged_in &&
-                <NavItem>
-                    <Link to="/AboutUs">About Us</Link>
+                {logged_in &&
+                <NavItem className='mt-2'>
+                    <h3><Link to="/deed_feed" style={{color:"white"}}>Deed Feed</Link></h3>
                 </NavItem>
-            }
+                }
+                {logged_in &&
+                <NavItem className='mt-2'>
+                    <h3><Link to="/new_deed" style={{color:"white"}} >Post Deed</Link></h3>
+                </NavItem>
+                }
 
-            {logged_in &&
-                <NavItem>
-                    <Link to="/deed_feed">Deed Feed</Link>
+                {logged_in &&
+                <NavItem className='mt-2'>
+                    <a style={{color:"white"}} href={sign_out_route}><h3>Sign Out</h3></a>
                 </NavItem>
-            }
-            {logged_in &&
-                <NavItem>
-                    <Link to="/new_deed" style={{paddingTop: "4.64px", paddingBottom: "4.64px", paddingLeft: "9.28px", paddingRight: "9.28px"}}>Post Deed</Link>
+                }
+                {!logged_in &&
+                <NavItem className='mt-2'>
+                    <a style={{color:"white"}} href={sign_in_route}><h3>Sign In</h3></a>
                 </NavItem>
-            }
-        
-            {logged_in &&
-                <NavItem>
-                    <a href={sign_out_route}>Sign Out</a>
-                </NavItem>
-            }
-            {!logged_in &&
-                <NavItem>
-                    <a href={sign_in_route}>Sign In</a>
-                </NavItem>
-            }
-          </Nav>
+                }
+              </Nav>
+          </Container>
+          <Container>
+              <Jumbotron style={{background:"#E6F9EC"}}>
+              <center>
+                <h1>
+                    Human Kind
+                </h1>
+                <p>
+                    a site for sharing good deeds in your community and connecting with others to deed the needy
+                </p>
+              </center>
+              </Jumbotron>
+          </Container>
 
-          <Jumbotron>
-            <h1>
-                Human Kind
-            </h1>
-            <p>
-                a site for sharing good deeds in your community and connecting with others to deed the needy
-            </p>
-          </Jumbotron>
           <Route exact path="/edit_post/:id" render={(props)=>{
                 return(
                     <EditPost {...props}

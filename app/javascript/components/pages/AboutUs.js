@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Card, Button, CardImg, CardTitle, CardText, CardDeck,
+import {Card, Button, CardImg, CardTitle, CardText, CardDeck, Container,
   CardSubtitle, CardBody, Image} from 'reactstrap'
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import Drew from './Drew.jpg';
@@ -22,7 +22,8 @@ export default class AboutUs extends React.Component {
     render(){
         return (
             <div>
-            <h1  style={{textAlign: 'center'}}>A Little About Us</h1>
+                <Container className='p-4' style={{background:"#58B4CC"}}>
+                <h1 className='p-3' style={{textAlign: 'center', color:'white'}}>A Little About Us</h1>
                   <CardDeck style={{ textAlign:'center', margin:'5px', marginBottom:'20px'}}>
                       <Card>
                         <CardImg top width="100%" src={Brian} />
@@ -38,19 +39,16 @@ export default class AboutUs extends React.Component {
                       <Card>
                         <CardImg top width="100%" src={Drew} />
                           <CardBody>
-                          
                             <CardTitle>Drew Yuri</CardTitle>
                             <CardSubtitle>Card subtitle</CardSubtitle>
                             <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
                               <a style={colorGithub} id="profile-link" className="btn btn-default" href="https://github.com/drewwski" target="_blank"><i className="fab fa-github" id = "Github"></i>Github <FaGithub /></a>
                               <a style={colorLinkedin} className="btn btn-default" href="https://www.linkedin.com/in/andrewyuri/" target="_blank"><i className="fab fa-linkedin" id = "LinkedIn"></i>LinkedIn <FaLinkedin /></a>
                           </CardBody>
-                      </Card>
-                      
+                      </Card>                   
                       <Card>
                         <CardImg top width="100%" src={Josh} />
-                          <CardBody>
-                          
+                          <CardBody>                
                             <CardTitle>Josh Steinbock</CardTitle>
                             <CardSubtitle>Card subtitle</CardSubtitle>
                             <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
@@ -59,7 +57,7 @@ export default class AboutUs extends React.Component {
                           </CardBody>
                       </Card>
                     </CardDeck>
-                  
+
                 <CardDeck style={{textAlign:'center',margin:'5px', marginBottom:'20px'}}>
                       <Card>
                         <CardImg top width="100%" src={Juan} />
@@ -95,8 +93,7 @@ export default class AboutUs extends React.Component {
                       </Card>
                     </CardDeck>
             </div>
-            
+
             )
     }
 }
-

@@ -88,7 +88,11 @@ class Feed extends React.Component {
                                     <CardSubtitle>Location: {post.location}</CardSubtitle>
                                     <CardText>{post.description}</CardText>
                                     
-                                    <LikeButton postID={post.id} handleClick={this.props.handleLikePost}/>
+                                    <LikeButton postID={post.id} 
+                                    handleClick={this.props.handleLikePost}
+                                    unlikeHandleClick={this.props.handleUnlikePost}
+                                    />
+                                    <p> likes: {post.likes} </p>
                                     {post.user_id === current_user_id &&
                                         <div>
                                             <Button>

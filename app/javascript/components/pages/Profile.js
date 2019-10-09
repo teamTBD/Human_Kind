@@ -2,10 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from 'react-router-dom'
 import { Card, CardImg, CardTitle, CardText, CardBody, CardSubtitle, Row, Col, Media, Button} from 'reactstrap'
+import LikeButton from '../component/LikeButton'
 
 export default class Profile extends React.Component {
     render(){
-      let { posts, current_user_id } = this.props
+      let { posts, current_user_id, handleLikePost, handleUnlikePost } = this.props
       return (   
         <div> 
           <Row>
@@ -35,6 +36,11 @@ export default class Profile extends React.Component {
                                   <CardTitle>{post.title}{post.image_url}</CardTitle>
                                   <CardSubtitle>{post.location}</CardSubtitle>
                                   <CardText>{post.description}</CardText>
+                                  <LikeButton postID={post.id} 
+                                    handleClick={this.props.handleLikePost}
+                                    unlikeHandleClick={this.props.handleUnlikePost}
+                                    />
+                                    <p> likes: {post.likes} </p>
                                   {post.user_id === current_user_id &&
                                       <div>
                                           <Button>

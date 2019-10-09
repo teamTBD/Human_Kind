@@ -23,4 +23,10 @@ class LikesController < ApplicationController
         end
     end
     
+    def destroy
+       @like= current_user.likes.where(post_id: params[:id]).first
+        @like.destroy
+        render json: @like
+    end
+    
 end

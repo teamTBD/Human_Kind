@@ -39,7 +39,6 @@ class NewDeed extends React.Component {
      <h1 style={{textAlign:'center'}}>Post Deed</h1>
       <Form style={{marginLeft:'25rem', marginRight:'25rem', marginTop:'5rem',marginBottom:'5rem', textAlign:'center'}}>
        <FormGroup>
-        
           <Label>Title of Your Post</Label>
             <Input
               name="title"
@@ -70,16 +69,6 @@ class NewDeed extends React.Component {
           {success && <Redirect to="/deed_feed" /> }
     </Form>
   </React.Fragment>
-
-      
-        
-        
-        
-        
-       
-        
-       
-      
     );
   }
 }

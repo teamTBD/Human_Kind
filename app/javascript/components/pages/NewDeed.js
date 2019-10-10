@@ -62,7 +62,7 @@ class NewDeed extends React.Component {
           <FormGroup style={{width:"50%", textAlign:'center'}}>
             <Label style={{color:'white'}}>Description of Your Deed</Label>
                 <Input
-                    type='text'
+                    type='textarea'
                     name="description"
                     value={description}
                     rows='3'

@@ -16,7 +16,7 @@ RSpec.describe Post, type: :model do
   end 
   it "must have an image" do
     post= Post.create
-    expect(post.errors[:image]).to_not be_empty
+    expect(post.errors[:image]).to be_empty
   end 
 end 
 

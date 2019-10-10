@@ -7,8 +7,7 @@ import LikeButton from '../component/LikeButton'
 
 export default class Profile extends React.Component {
     render(){
-      let { posts, current_user_id, handleLikePost, handleUnlikePost } = this.props
-
+      let { posts, current_user_id, handleLikePost, handleUnlikePost, current_user_username } = this.props
       return (
         <React.Fragment>
             <Container className='p-4' style={{background:"#58B4CC"}}>
@@ -20,7 +19,7 @@ export default class Profile extends React.Component {
                     </Media>
                     <Media body style={{padding: 20}}>
                       <Media heading style={{textAlign: 'center'}}>
-                        User Name
+                        {current_user_username}
                       </Media>
                       This is a little about me. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                     </Media>

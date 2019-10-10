@@ -89,7 +89,8 @@ class MainApp extends React.Component {
         logged_in,
         sign_in_route,
         sign_out_route,
-        current_user_id
+        current_user_id,
+        current_user_username
       } = this.props
 
       const {posts} = this.state
@@ -186,7 +187,8 @@ class MainApp extends React.Component {
                     handleUnlikePost={this.handleUnlikePost}
                     posts = {posts}
                     handleDeletePost={this.handleDeletePost}
-                    current_user_id={current_user_id}/>
+                    current_user_id={current_user_id}
+                    current_user_username={current_user_username}/>
                 )}}
 
           />

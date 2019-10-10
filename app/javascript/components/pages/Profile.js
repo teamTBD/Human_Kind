@@ -8,6 +8,7 @@ import LikeButton from '../component/LikeButton'
 export default class Profile extends React.Component {
     render(){
       let { posts, current_user_id, handleLikePost, handleUnlikePost } = this.props
+
       return (
         <React.Fragment>
             <Container className='p-4' style={{background:"#58B4CC"}}>
@@ -26,24 +27,27 @@ export default class Profile extends React.Component {
                   </Media>
                 </Col>
                 <Col sm="7">
-                  <h1 style={{ padding:20, textAlign: 'center', color:"white"}}>Your Deeds </h1>
+
+                    <h1 style={{ padding:20, textAlign: 'center', color:"white"}}>User Deeds </h1>
+
                   <div style={{height: '500px', overflow: 'auto'}}>
                     {posts.map((post) => {
-                      {if(post.user_id === current_user_id){
+                      if(this.props.match.params.user_id == post.user_id){
                         return(
 
                                 <Card key={post.id}>
                                   <CardBody style={{background: "#E6F9EC"}}>
                                       <CardImg src={post.image_url}/>
-                                      <CardTitle>{post.title}{post.image_url}</CardTitle>
+                                      <CardTitle>{post.title}</CardTitle>
 
-                                      <CardSubtitle>{post.location}</CardSubtitle>
-                                      <CardText>{post.description}</CardText>
-                                      <LikeButton postID={post.id} 
+                                      <CardSubtitle>User: {post.username}</CardSubtitle>
+                                      <CardSubtitle>Location: {post.location}</CardSubtitle>
+                                      <CardText>Description: {post.description}</CardText>
+                                      <LikeButton postID={post.id}
                                         handleClick={this.props.handleLikePost}
                                         unlikeHandleClick={this.props.handleUnlikePost}
                                       />
-                                      <p> likes: {post.likes} </p>
+                                      <p> Likes: {post.likes} </p>
 
                                       {post.user_id === current_user_id &&
                                           <div>
@@ -60,8 +64,8 @@ export default class Profile extends React.Component {
 
                         )}
                       }
-                    })}
-                  </div>
+                    )}
+                    </div>
                 </Col>
               </Row>
           </Container>

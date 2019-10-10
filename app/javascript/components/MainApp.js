@@ -103,7 +103,7 @@ class MainApp extends React.Component {
               <Nav style={{display:'flex', background:"#58B4CC", justifyContent:"space-around"}} className='ptb-2'>
                 {logged_in &&
                 <NavItem className='mt-2'>
-                    <h3><Link to="/profile" style={{color:"white"}} >Profile</Link></h3>
+                    <h3><Link to={`/profile/${current_user_id}`} style={{color:"white"}} >Profile</Link></h3>
                 </NavItem>
                 }
 
@@ -188,7 +188,7 @@ class MainApp extends React.Component {
             }}
           />
 
-           <Route exact path="/profile" render={(props)=>{
+           <Route exact path='/profile/:user_id' render={(props)=>{
                 return(
                     <Profile
                     {...props}

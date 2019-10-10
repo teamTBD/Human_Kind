@@ -91,15 +91,15 @@ class Feed extends React.Component {
                             <CardBody style={{background:"#E6F9EC"}}>
                             <center>
                                 <CardImg src={post.image_url} style={{width:'350px'}}/>
-                                <h3 >{post.title}{post.image_url}</h3>
-                                <h4>User: {post.username}</h4>
+                                <h3 >{post.title}</h3>
+                                <Link to={`/profile/${post.user_id}`} ><h4>User: {post.username}</h4></Link>
                                 <h4>Location: {post.location}</h4>
                                 <h4>Description: {post.description}</h4>
                                 <LikeButton postID={post.id}
                                   handleClick={this.props.handleLikePost}
                                   unlikeHandleClick={this.props.handleUnlikePost}
                                 />
-                                <p> likes: {post.likes} </p>
+                                <p> Likes: {post.likes} </p>
                                 {post.user_id === current_user_id &&
                                     <div>
                                         <Button style={{background:'#58B4CC', color:'white', marginRight:'2px'}}>

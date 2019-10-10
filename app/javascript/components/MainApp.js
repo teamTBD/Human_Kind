@@ -4,7 +4,9 @@ import { Nav, NavLink, NavItem, Container, Jumbotron } from 'reactstrap'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import Feed from './pages/Feed'
+import ImageSlider from './component/ImageSlider'
 import Profile from './pages/Profile'
+import Home from './pages/Home'
 import NewDeed from './pages/NewDeed'
 import EditPost from './pages/EditPost'
 import AboutUs from './pages/AboutUs'
@@ -52,7 +54,7 @@ class MainApp extends React.Component {
             })
         })
     }
-    
+
     handleLikePost = (id) => {
         return likePost(id)
         .then(likedPost => {
@@ -62,7 +64,7 @@ class MainApp extends React.Component {
             })
         })
     }
-    
+
     handleUnlikePost = (id) => {
         return unlikePost(id)
         .then(unlikedPost => {
@@ -72,7 +74,7 @@ class MainApp extends React.Component {
             })
         })
     }
-    
+
     componentDidMount() {
         getPosts()
         .then( posts => {
@@ -101,7 +103,7 @@ class MainApp extends React.Component {
               <Nav style={{display:'flex', background:"#58B4CC", justifyContent:"space-around"}} className='ptb-2'>
                 {logged_in &&
                 <NavItem className='mt-2'>
-                    <h3><Link to="/profile" style={{color:"white"}} >Profile</Link></h3>
+                    <h3><Link to={`/profile/${current_user_id}`} style={{color:"white"}} >Profile</Link></h3>
                 </NavItem>
                 }
 
@@ -158,8 +160,8 @@ class MainApp extends React.Component {
           <Route exact path="/deed_feed" render={(props)=>{
                 return(
                     <Feed
-                        {...props} 
-                        posts = {posts} 
+                        {...props}
+                        posts = {posts}
                         changeSuccess={this.changeSuccess}
                         handleDeletePost={this.handleDeletePost}
                         current_user_id={current_user_id}
@@ -178,7 +180,15 @@ class MainApp extends React.Component {
             }}
           />
 
-           <Route exact path="/profile" render={(props)=>{
+          <Route exact path="/" render={(props)=>{
+                return(
+                    <Home
+                    />
+                )
+            }}
+          />
+
+           <Route exact path='/profile/:user_id' render={(props)=>{
                 return(
                     <Profile
                     {...props}

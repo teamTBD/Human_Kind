@@ -1,6 +1,9 @@
 {
   "name": "capstone_tbd",
   "private": true,
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
@@ -29,6 +32,11 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "jest": "^24.9.0",
+    "jest-enzyme": "^7.1.1",
+    "react-test-renderer": "^16.10.2",
     "webpack-dev-server": "^3.8.1"
   }
 }

@@ -59,6 +59,18 @@ let likePost = (id, form) => {
     })
 }
 
+let unlikePost = (id) => {
+    return fetch(`/likes/${id}`, {
+        headers:{
+            "Content-Type": "application/json"
+        },
+        method: 'DELETE'
+    })
+    .then((response) => {
+        return response
+    })
+}
+
 
 let findPost = function(id) {
     return fetch(`/posts/${id}`)
@@ -68,5 +80,5 @@ let findPost = function(id) {
     })
 }
 export {
-    getPosts, createPost, editPost, findPost, deletePost, likePost
+    getPosts, createPost, editPost, findPost, deletePost, likePost, unlikePost
 }

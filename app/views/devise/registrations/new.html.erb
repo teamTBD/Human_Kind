@@ -1,3 +1,15 @@
+<center>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Human Kind</h1>
+        <p>a site for sharing good deeds in your community and connecting with others to deed the needy</p>
+      </div>
+      <div class="homepage" >
+
+    </br>
+
+
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -35,10 +47,16 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  </br>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+</br>
 
 <%= render "devise/shared/links" %>
+
+    </div>
+    </div>
+</center>

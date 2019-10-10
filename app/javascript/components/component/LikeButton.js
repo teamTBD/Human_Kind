@@ -15,6 +15,11 @@ class LikeButton extends React.Component {
       .then(() => this.checkLike())
   }
   
+  unlikeHandleClick = () => {
+    this.props.unlikeHandleClick(this.props.postID)
+    .then(() => this.checkLike())
+  }
+  
   checkLike = () => {
     fetch(`/likes/find?post_id=${this.props.postID}`)
     .then((response) => {
@@ -31,6 +36,10 @@ class LikeButton extends React.Component {
       <React.Fragment>
       {!this.state.isLiked &&
         <button onClick={this.handleClick}>Like
+        </button>
+      }
+      {this.state.isLiked &&
+        <button onClick={this.unlikeHandleClick}>Unlike
         </button>
       }
       </React.Fragment>

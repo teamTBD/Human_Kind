@@ -35,7 +35,7 @@ export default class AboutUs extends React.Component {
                               <a style={colorLinkedin} className="btn btn-default" href="https://www.linkedin.com/in/hello-brian-lin/" target="_blank"><i className="fab fa-linkedin" id = "LinkedIn"></i>LinkedIn <FaLinkedin /></a>
                           </CardBody>
                       </Card>
-                      
+
                       <Card>
                         <CardImg top width="100%" src={Drew} />
                           <CardBody>
@@ -45,10 +45,10 @@ export default class AboutUs extends React.Component {
                               <a style={colorGithub} id="profile-link" className="btn btn-default" href="https://github.com/drewwski" target="_blank"><i className="fab fa-github" id = "Github"></i>Github <FaGithub /></a>
                               <a style={colorLinkedin} className="btn btn-default" href="https://www.linkedin.com/in/andrewyuri/" target="_blank"><i className="fab fa-linkedin" id = "LinkedIn"></i>LinkedIn <FaLinkedin /></a>
                           </CardBody>
-                      </Card>                   
+                      </Card>
                       <Card>
                         <CardImg top width="100%" src={Josh} />
-                          <CardBody>                
+                          <CardBody>
                             <CardTitle>Josh Steinbock</CardTitle>
                             <CardSubtitle>Card subtitle</CardSubtitle>
                             <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
@@ -69,7 +69,7 @@ export default class AboutUs extends React.Component {
                              <a style={colorLinkedin} className="btn btn-default" href="https://www.linkedin.com/in/juanpcardenas1/" target="_blank"><i className="fab fa-linkedin" id = "LinkedIn"></i>LinkedIn <FaLinkedin /></a>
                           </CardBody>
                       </Card>
-                      
+
                       <Card>
                         <CardImg top width="100%" src={Rob} />
                           <CardBody>
@@ -80,7 +80,7 @@ export default class AboutUs extends React.Component {
                              <a style={colorLinkedin} className="btn btn-default" href="https://www.linkedin.com/in/rob-osborn/" target="_blank"><i className="fab fa-linkedin" id = "LinkedIn"></i>LinkedIn <FaLinkedin /></a>
                           </CardBody>
                       </Card>
-                      
+
                       <Card>
                         <CardImg top width="100%" src={Sebastian} />
                           <CardBody>
@@ -92,6 +92,7 @@ export default class AboutUs extends React.Component {
                           </CardBody>
                       </Card>
                     </CardDeck>
+                    </Container>
             </div>
 
             )

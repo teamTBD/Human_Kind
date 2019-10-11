@@ -8,6 +8,15 @@ import LikeButton from '../component/LikeButton'
 export default class Profile extends React.Component {
     render(){
       let { posts, current_user_id, handleLikePost, handleUnlikePost, current_user_username } = this.props
+      let i=0;
+      let postUsername = ""
+      for(let j=0; j<posts.length; j++){
+        if(this.props.match.params.user_id == posts[j].user_id){
+          let userPost = posts[j]
+          postUsername = userPost.username
+          break
+        }
+      }
       return (
         <React.Fragment>
             <Container className='p-4' style={{background:"#58B4CC"}}>
@@ -19,7 +28,7 @@ export default class Profile extends React.Component {
                     </Media>
                     <Media body style={{padding: 20}}>
                       <Media heading style={{textAlign: 'center'}}>
-                        {current_user_username}
+                        {postUsername}
                       </Media>
                       This is a little about me. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                     </Media>
@@ -28,7 +37,7 @@ export default class Profile extends React.Component {
                 </Col>
                 <Col sm="7">
 
-                    <h1 style={{ padding:20, textAlign: 'center', color:"white"}}>User Deeds </h1>
+                    <h1 style={{ padding:20, textAlign: 'center', color:"white"}}>{postUsername}'s Deeds </h1>
 
                   <div style={{height: '500px', overflow: 'auto'}}>
                     {posts.map((post) => {

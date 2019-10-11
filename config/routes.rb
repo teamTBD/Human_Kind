@@ -4,9 +4,10 @@ Rails.application.routes.draw do
       get :find
     end
   end
-  
+
   resources :posts
   devise_for :users
+  resources :users
   get '*path', to: 'pages#index', constraints: ->(request){ request.format.html? }
   root to: "pages#index"
 end

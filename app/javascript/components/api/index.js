@@ -79,6 +79,36 @@ let findPost = function(id) {
         return json
     })
 }
+
+let getUsers = function () {
+    return fetch("/users")
+    .then(response => {
+        return response.json()
+    })
+}
+
+let findUser = function(id) {
+    return fetch(`/users/${id}`)
+    .then((resp) => {
+        let json = resp.json()
+        return json
+    })
+}
+
+let editUser = (id, form) => {
+    return fetch(`/users/${id}`, {
+        body: JSON.stringify(form),
+        headers:{
+            "Content-Type": "application/json"
+        },
+        method: 'PATCH'
+    })
+    .then((response) => {
+        let json = response.json()
+        return json
+    })
+}
+
 export {
-    getPosts, createPost, editPost, findPost, deletePost, likePost, unlikePost
+    getPosts, createPost, editPost, findPost, deletePost, likePost, unlikePost, findUser, editUser, getUsers
 }

@@ -9,9 +9,10 @@ import Profile from './pages/Profile'
 import Home from './pages/Home'
 import NewDeed from './pages/NewDeed'
 import EditPost from './pages/EditPost'
+import EditBio from './pages/EditBio'
 import AboutUs from './pages/AboutUs'
 import LikeButton from './component/LikeButton'
-import { getPosts, createPost, editPost, deletePost, likePost, unlikePost } from './api'
+import { getPosts, findUser, createPost, editPost, deletePost, likePost, unlikePost, editUser, getUsers } from './api'
 
 class MainApp extends React.Component {
     constructor(props){
@@ -19,7 +20,8 @@ class MainApp extends React.Component {
         this.state = {
             posts: [],
             logged_in: "",
-            success: false
+            success: false,
+            users: []
         }
     }
 
@@ -75,6 +77,17 @@ class MainApp extends React.Component {
         })
     }
 
+    handleEditUser = (id, form) => {
+        return editUser(id,form)
+        .then(editedUser => {
+            getUsers()
+            .then(users=>{
+                this.setState({users})
+            })
+            return editedUser
+        })
+    }
+
     componentDidMount() {
         getPosts()
         .then( posts => {
@@ -95,7 +108,7 @@ class MainApp extends React.Component {
         current_user_username
       } = this.props
 
-      const {posts} = this.state
+      const {posts, users} = this.state
 
     return (
       <React.Fragment>
@@ -201,6 +214,15 @@ class MainApp extends React.Component {
                     current_user_username={current_user_username}/>
                 )}}
 
+          />
+
+          <Route exact path="/edit_user/:id" render={(props)=>{
+                return(
+                    <EditBio {...props}
+                    users = {users} handleEditUser={this.handleEditUser}
+                    />
+                )
+            }}
           />
 
           <Route exact path="/AboutUs" render={()=>{

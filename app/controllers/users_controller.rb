@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
     before_action :authenticate_user!, only: [:show, :update]
 
     def index
@@ -10,7 +10,7 @@ class UserController < ApplicationController
     end
 
     def update
-        @user = current_user.users.find(params[:id])
+        @user = current_user
         if @user.update(user_params)
             # render json: @user
             render :show
@@ -21,7 +21,7 @@ class UserController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:avatar)
+        params.require(:user).permit(:avatar, :bio)
     end
 
 end

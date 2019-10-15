@@ -18,10 +18,10 @@ export default class Profile extends React.Component {
     handleDeletePost = (id) => {
         deletePost(id)
         .then(deletedDeed => {
-            findUser(this.state.userID)
-            .then(user=>{
-                this.setState({user: user})
-            })
+            return findUser(this.state.userID)
+        })
+        .then(user=>{
+            this.setState({user: user})
         })
     }
 
@@ -75,7 +75,7 @@ export default class Profile extends React.Component {
 
                       <center>
                       {user.id === current_user_id &&
-                          <Button style={{background:'#58B4CC', color:'white', marginRight:'2px', marginTop:'6px'}}>
+                          <Button style={{background:'#58B4CC', color:'white', marginTop:'8px'}}>
                               <Link style={{color:'white'}} to={`/edit_user/${user.id}`}>Edit Bio
                               </Link>
                           </Button>

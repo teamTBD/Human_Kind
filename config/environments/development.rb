@@ -29,7 +29,7 @@ Rails.application.configure do
 	end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :amazon 
+  config.active_storage.service = :amazon
 
 	# Don't care if the mailer can't send.
 	config.action_mailer.raise_delivery_errors = false
@@ -65,5 +65,6 @@ Rails.application.configure do
   config.hosts << "34556cf7662544348b3429b4ca2351e8.vfs.cloud9.us-east-2.amazonaws.com"
   config.hosts << "1b846d6898c647df9a933bb7893eaa1d.vfs.cloud9.us-east-2.amazonaws.com"
   config.hosts << "223908357e9c4edc95d07886cd17fb5e.vfs.cloud9.us-east-2.amazonaws.com"
+  config.hosts << "cryptic-crag-66013.herokuapp.com"
 
 end

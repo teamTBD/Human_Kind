@@ -49,7 +49,7 @@ export default class AboutUs extends React.Component {
                         <CardImg top width="100%" src={Josh} />
                           <CardBody>
                             <CardTitle>Josh Steinbock</CardTitle>
-                            <CardText style={{height: '125px', overflow: 'auto'}}>Hi i'm Josh!</CardText>
+                            <CardText style={{height: '120px', overflow: 'auto'}}>A diversified management background with excellent leadership and communication.  An analytical thinker with a creative mind looking to make a footprint on the future of programming who is also actively seeking a worthy opponent in ping pong.</CardText>
                              <a style={colorGithub} id="profile-link" className="btn btn-default" href="https://github.com/Josh3845" target="_blank"><i className="fab fa-github" id = "Github"></i>Github <FaGithub /></a>
                              <a style={colorLinkedin} className="btn btn-default" href="https://www.linkedin.com/in/josh-steinbock/" target="_blank"><i className="fab fa-linkedin" id = "LinkedIn"></i>LinkedIn <FaLinkedin /></a>
                           </CardBody>

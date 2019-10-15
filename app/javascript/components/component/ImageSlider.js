@@ -12,18 +12,28 @@ const items = [
   {
     src: 'https://media.defense.gov/2010/Oct/18/2000315629/780/780/0/101016-F-1979R-001.JPG',
     altText: 'Passing out food',
-    caption: 'Human Kind'
+    caption: 'Human_Kind'
   },
   {
     src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Helping_Needy_People_-_Makar_Sankranti_Observance_-_Ramkrishnapur_Ghat_-_Howrah_2018-01-14_6430.JPG/800px-Helping_Needy_People_-_Makar_Sankranti_Observance_-_Ramkrishnapur_Ghat_-_Howrah_2018-01-14_6430.JPG',
     altText: 'Slide 2',
-    caption: 'Human Kind'
+    caption: 'Human_Kind'
   },
   {
-    src: 'https://live.staticflickr.com/3028/2905921539_7d0a4d50a5_b.jpg',
+    src: 'https://navylive.dodlive.mil/files/2016/04/110915-N-YU572-076.jpg',
     altText: 'Slide 3',
-    caption: 'Human Kind'
-  }
+    caption: 'Human_Kind'
+},
+{
+  src: 'https://live.staticflickr.com/3028/2905921539_7d0a4d50a5_b.jpg',
+  altText: 'Slide 4',
+  caption: 'Human_Kind'
+},
+{
+  src: 'https://media.defense.gov/2014/Nov/07/2000988405/780/780/0/141107-F-OW434-216.JPG',
+  altText: 'Slide 5',
+  caption: 'Human_Kind'
+}
 ];
 
 class ImageSlider extends Component {
@@ -73,7 +83,7 @@ class ImageSlider extends Component {
           key={item.src}
         >
           <img src={item.src} alt={item.altText} />
-          <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+          <CarouselCaption captionText="" captionHeader={item.caption} />
         </CarouselItem>
       );
     });

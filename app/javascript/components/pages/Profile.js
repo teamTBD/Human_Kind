@@ -50,16 +50,19 @@ export default class Profile extends React.Component {
     }
 
     render(){
+
       let { current_user_id, handleLikePost, handleUnlikePost, current_user_username, current_user_bio } = this.props
       let { user, userID } = this.state
       if(this.state.user){
           console.log("user", user);
+
       }
       return (
         <React.Fragment>
             <Container className='p-4' style={{background:"#58B4CC"}}>
             {user &&
               <Row>
+
                     <Col sm="5">
                     <Media style={{border: '1.5px solid rgba(199, 187, 187, 0.5)', margin:'105px 10px 0px 20px', background: "#E6F9EC" }} >
                         <Media left href="#">
@@ -71,6 +74,7 @@ export default class Profile extends React.Component {
                           </Media>
                           {user.bio}
                         </Media>
+
                       </Media>
 
                       <center>
@@ -119,6 +123,7 @@ export default class Profile extends React.Component {
 
 
                         )
+
                       }
                     )}
                     </div>

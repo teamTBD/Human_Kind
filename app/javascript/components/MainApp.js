@@ -12,6 +12,7 @@ import EditPost from './pages/EditPost'
 import EditBio from './pages/EditBio'
 import AboutUs from './pages/AboutUs'
 import LikeButton from './component/LikeButton'
+import logo from './pages/logo'
 import { getPosts, findUser, createPost, editPost, deletePost, likePost, unlikePost, editUser, getUsers } from './api'
 
 class MainApp extends React.Component {
@@ -149,19 +150,14 @@ class MainApp extends React.Component {
                 </NavItem>
                 }
               </Nav>
-          </Container>
-          <Container>
-              <Jumbotron style={{background:"#E6F9EC"}}>
+
+              <div className="m-3" style={{background:"#fff"}}>
               <center>
-                <h1 style={{fontSize:"30px"}}>
-                    Human_Kind
-                </h1>
-                <p style={{fontSize:"15px"}}>
-                    a site for sharing good deeds in your community and connecting with others to deed the needy
-                </p>
+                <img src={logo} style={{width:'70%'}}/>
+                <h3 style={{color:"#F066EE"}} className="pb-2">a site for inspiring and sharing good deeds in your community</h3>
               </center>
-              </Jumbotron>
-          </Container>
+              </div>
+
 
           <Route exact path="/edit_post/:id" render={(props)=>{
                 return(
@@ -231,7 +227,7 @@ class MainApp extends React.Component {
               )
           }}
           />
-
+          </Container>
         </Router>
       </React.Fragment>
     );

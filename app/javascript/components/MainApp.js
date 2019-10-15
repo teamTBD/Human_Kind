@@ -153,10 +153,10 @@ class MainApp extends React.Component {
           <Container>
               <Jumbotron style={{background:"#E6F9EC"}}>
               <center>
-                <h1 style={{fontSize:"30px"}}>
+                <h1 style={{fontSize:"35px"}}>
                     Human_Kind
                 </h1>
-                <p style={{fontSize:"15px"}}>
+                <p style={{fontSize:"20px"}}>
                     a site for sharing good deeds in your community and connecting with others to deed the needy
                 </p>
               </center>

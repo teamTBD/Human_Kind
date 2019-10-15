@@ -40,7 +40,7 @@ export default class AboutUs extends React.Component {
                         <CardImg top width="100%" src={Drew} />
                           <CardBody>
                             <CardTitle>Drew Yuri</CardTitle>
-                            <CardText style={{height: '125px', overflow: 'auto'}}>This card has supporting text below as a natural lead-in to additional content.I am currently a software engineer in training a Learn Academy, in San Diego. Backed with 6+ years of customer service which helped me develop a perspective that I am eager to apply to programming. I am passionately seeking to enhance my skillset as a software engineer by bringing new problem solving techniques to the tech industry.</CardText>
+                            <CardText style={{height: '125px', overflow: 'auto'}}>I am currently a software engineer in training a Learn Academy, in San Diego. Backed with 6+ years of customer service which helped me develop a perspective that I am eager to apply to programming. I am passionately seeking to enhance my skillset as a software engineer by bringing new problem solving techniques to the tech industry.</CardText>
                               <a style={colorGithub} id="profile-link" className="btn btn-default" href="https://github.com/drewwski" target="_blank"><i className="fab fa-github" id = "Github"></i>Github <FaGithub /></a>
                               <a style={colorLinkedin} className="btn btn-default" href="https://www.linkedin.com/in/andrewyuri/" target="_blank"><i className="fab fa-linkedin" id = "LinkedIn"></i>LinkedIn <FaLinkedin /></a>
                           </CardBody>

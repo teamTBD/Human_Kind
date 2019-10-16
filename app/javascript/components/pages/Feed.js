@@ -28,10 +28,12 @@ class Feed extends React.Component {
             .then((result) => {
                 let title = post.title
                 let description = post.description
+                let username = post.username
                 let marker = {
                     location: [result[0].y, result[0].x],
                     title: title,
-                    description: description
+                    description: description,
+                    username: username
                 }
                 this.setState({markers: [...this.state.markers, marker ]})
             })
@@ -71,7 +73,7 @@ class Feed extends React.Component {
                     return(
                         <Marker key= {index} position={marker.location} draggable={true}>
                             <Popup>
-                                Title: {marker.title} <br/> Description: {marker.description}
+                                User: {marker.username} <br/>Title: {marker.title} <br/> Description: {marker.description}
                             </Popup>
                         </Marker>
                     )

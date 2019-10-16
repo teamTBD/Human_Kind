@@ -96,7 +96,7 @@ class Feed extends React.Component {
                                 <h3 >{post.title}</h3>
                                 <Link to={`/profile/${post.user_id}`} ><h4>User: {post.username}</h4></Link>
                                 <h4>Location: {post.location}</h4>
-                                <h4>Description: {post.description}</h4>
+                                <h4 style={{width:'500px'}}>Description: {post.description}</h4>
                                 <LikeButton postID={post.id}
                                   handleClick={this.props.handleLikePost}
                                   unlikeHandleClick={this.props.handleUnlikePost}
